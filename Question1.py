@@ -1,32 +1,26 @@
-from flask import Flask
+from flask import *
 
 app = Flask(__name__)
 
-@app.route("/")
-def home():
-    return "Home"
+@app.route('/<string:username>')
+def welcome(username):
+    username = username.strip()
+    tmp = ''
+    is_low = 0
+    is_up = 0
+    for i in range(len(username)):
+        if username[i].isalpha():
+            tmp += username[i]
+            is_low |= username[i].islower()
+            is_up |= username[i].isupper()
+    username = tmp
+    
+    username = username.lower()
+    if is_low and is_up:
+        username = username[0].upper() + username[1:].lower()
+    elif is_low:
+        username = username.upper()
+    return f'Welcome, {username}, to my CSCB20 Website'
 
-@app.route("/<id>/")
-def read(id):
-    name = ""
-    name += id
-    name = name.strip()
-    if not name.isalpha():
-        new_name = ""
-        for char in name:
-            if char.isalpha():
-                new_name += char
-        return "Welcome, " + new_name + ", to my CSCB20 website!"
-    if name.isupper():
-        name = name.lower()
-    elif name.islower():
-        name = name.upper()
-    else:
-        if(len(name) > 0):
-            name[0] = name[0].upper()
-            if(len(name) > 1):
-                name[1:] = name[1:].lower()
-    return "Welcome, " + name + ", to my CSCB20 website!"
-
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug = True)
