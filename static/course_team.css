@@ -16,6 +16,20 @@
 
 .profile img {
     width: 8rem;
+    border-radius: 80%;
     height: auto;
     margin-right: 30px;
 }
+
+.team-col {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr); 
+    gap: 20px 200px;
+    margin-left: 50px;
+    margin-bottom: 2rem;
+}
+
+.description-col-box {
+    width: 320px;
+}
+
