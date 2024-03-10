@@ -29,7 +29,14 @@ li .active-tab {
     padding: 14px 16px;
     text-decoration: none;
 }
-  
+
+li .navbar-title {
+    display: block;
+    color: white;
+    text-align: left;
+    padding: 14px 16px;
+    
+}
 
 /* Change the link color to #111 (black) on hover */
 li .tab:hover {
