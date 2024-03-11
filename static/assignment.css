@@ -1,0 +1,25 @@
+.left-item {
+    justify-self: start;
+}
+
+.center-item {
+    justify-self: center;
+}
+
+.right-item {
+    justify-self: right;
+}
+
+.description-col-box {
+    width: 500px;
+}
+
+.description-col {
+    grid-template-columns: repeat(auto-fill, minmax(300px, vw));
+}
+
+@media screen and (max-width: 768px) {
+    .description-col {
+      grid-template-columns: 1fr;
+    }
+  }
