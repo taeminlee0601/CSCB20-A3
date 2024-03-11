@@ -1,4 +1,22 @@
-.page-title {
-    font-family: 'Merriweather Sans';
-    padding: 20px;
+@import url(../static/index.css);
+
+h2 {
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+}
+
+.description-col-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.button-div {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    align-items: center;
+    margin-top: auto
 }
