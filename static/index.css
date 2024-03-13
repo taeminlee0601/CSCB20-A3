@@ -84,14 +84,14 @@ footer {
     margin-top: auto;
 }
 
-.description-col {
+.description-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
     gap: 20px 20px;
     margin: 2rem;
 }
 
-.description-col-box {
+.description-grid-box {
     /* margin: 2rem 20px; */
     /* margin: 2rem; */
     padding: 2rem;
@@ -100,7 +100,7 @@ footer {
     justify-content: center;
 }
 
-.description-row {
+.description-flex {
     margin: 2rem;
     padding: 2rem;
     border: 2px solid #444;
