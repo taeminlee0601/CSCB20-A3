@@ -1,0 +1,23 @@
+@import url(../static/index.css);
+
+.description-col-box {
+    display: grid;
+    min-height: 45vh;
+    grid-template-rows: 15vh 25vh;
+}
+
+.description-col-box p {
+    align-self: start;
+}
+
+.description-col-box a {
+    justify-self: center;
+    align-self: end;
+}
+a:link {
+    color: #444;
+}
+
+a:visited {
+    color: #705a87;
+}

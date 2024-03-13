@@ -3,7 +3,83 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Resources</title>
+    <link rel="stylesheet" href="../static/resources.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body></body>
+  <!-- This is the header/navigation bar of the page -->
+  <body>
+    <header>
+      <div class="navbar">
+        <a class="navbar-title" href="#">CSCB20</a>
+        <div class="dropdown">
+          <a class="tab">Home</a>
+          <div class="dropdown-content">
+            <a href="#">Course Description</a>
+            <a href="#">Syllabus</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <a class="tab">Material</a>
+          <div class="dropdown-content">
+            <a href="#">Assignments</a>
+            <a href="#">Lectures</a>
+            <a href="#">Labs</a>
+          </div>
+        </div>
+        <a class="tab" href="#">Resources</a>
+        <a class="tab" href="#">Calendar</a>
+        <div class="dropdown">
+          <a class="tab">Contact</a>
+          <div class="dropdown-content">
+            <a href="#">Course Team</a>
+            <a href="#">Feedback</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <h1>Resources</h1>
+    <div class="description-col">
+      <div class="description-col-box">
+        <h2><a href="https://piazza.com/class/lqy466htv8g5xb">Piazza</a></h2>
+        <p>
+          Piazza is a discussion board for our course. We encourage you to post
+          questions, read and answer the questions your classmates have posted!
+        </p>
+      </div>
+      <div class="description-col-box">
+        <h2>
+          <a href="https://markus2.utsc.utoronto.ca/courses/20/assignments"
+            >MarkUs</a
+          >
+        </h2>
+        <p>
+          MarkUs is a platform where you will submit your assignments and check
+          the results!
+        </p>
+      </div>
+      <div class="description-col-box">
+        <h2><a href="../templates/pasttest.html">Past Test</a></h2>
+        <p>
+          Take a look at the past tests to be prepared for your midterm and
+          final exam! We encourage you to try writing the past tests first, and
+          then look at the solution.
+        </p>
+      </div>
+    </div>
+    <footer>
+      <p>
+        <strong>CSCB20 - Introduction to Web Application and Database</strong>
+      </p>
+      <a href="https://web.cs.toronto.edu/people/faculty-directory"
+        >Department of Computer Science at U of T</a
+      >
+      <p>Site designed by Bomin Kim, Taemin Lee, and Paul Nguyen</p>
+    </footer>
+  </body>
 </html>
