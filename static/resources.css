@@ -1,23 +1,26 @@
 @import url(../static/index.css);
 
+.description-col {
+    justify-items: center;
+}
+
 .description-col-box {
     display: grid;
     min-height: 45vh;
+    max-width: 20vw;
     grid-template-rows: 15vh 25vh;
 }
 
 .description-col-box p {
+    justify-self: center;
     align-self: start;
 }
 
-.description-col-box a {
+.description-col-box h2 {
     justify-self: center;
     align-self: end;
 }
-a:link {
-    color: #444;
-}
 
-a:visited {
-    color: #705a87;
+.description-col-box a {
+    color: #444;
 }

@@ -11,6 +11,10 @@
     justify-content: center;
 }
 
+.description-row a {
+    color: #444;
+}
+
 body {
     margin-top: 100px;
 }
@@ -22,12 +26,4 @@ h1 {
 
 li {
     padding: 5px;
-}
-
-a:link {
-    color: #444;
-}
-
-a:visited {
-    color: #705a87;
 }
