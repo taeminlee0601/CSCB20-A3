@@ -1,0 +1,37 @@
+@import url(../static/index.css);
+
+.description-grid {
+    justify-items: center;
+}
+
+.description-grid-box {
+    display: grid;
+    min-height: 45vh;
+    max-width: 20vw;
+    grid-template-rows: 20vh 10vh 10vh;
+}
+
+.description-grid-box p {
+    justify-self: center;
+    align-self: start;
+}
+
+.description-grid-box h2 {
+    justify-self: center;
+    align-self: center;
+}
+
+.description-grid-box a {
+    color: #444;
+}
+
+.description-grid-box a:hover {
+    text-shadow: 1px 1px 1px #9b9b9b;
+}
+
+img {
+    justify-self: center;
+    align-self: center;
+    max-width: 10vw;
+    height: auto;
+}

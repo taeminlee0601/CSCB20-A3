@@ -1,0 +1,36 @@
+@import url(../static/index.css);
+
+.description-grid a {
+    color: #444;
+}
+
+.description-grid a:hover {
+    color: #444;
+    text-shadow: 1px 1px 1px #9b9b9b;
+}
+
+.description-grid-box {
+    min-height: 30vh;
+}
+
+body {
+    margin-top: 100px;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    padding: 5px;
+}
+
+h2 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+    font-size: 18px;
+}
