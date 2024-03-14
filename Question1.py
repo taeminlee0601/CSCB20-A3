@@ -22,7 +22,22 @@ def welcome(username):
             username = username.upper()
     else:
         username = tmp
-    return f'Welcome, {username}, to my CSCB20 Website'
+
+    html_string = f"""
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Question 1</title>
+    </head>
+    <body>
+        <h1>Welcome, {username} to my CSCB20 website!</h1>
+    </body>
+    </html>
+    """
+
+    return render_template_string(html_string)
 
 if __name__ == "__main__":
     app.run(debug = True)
