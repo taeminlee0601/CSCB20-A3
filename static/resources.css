@@ -8,7 +8,7 @@
     display: grid;
     min-height: 45vh;
     max-width: 20vw;
-    grid-template-rows: 20vh 10vh 10vh;
+    grid-template-rows: auto auto auto;
 }
 
 .description-grid-box p {
