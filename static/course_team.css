@@ -1,4 +1,4 @@
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 768px) {
     .profile {
         display: flex;
         flex-direction: row;
@@ -18,18 +18,18 @@
     width: 8rem;
     border-radius: 80%;
     height: auto;
-    margin-right: 30px;
+    margin-right: 2vw;
 }
 
 .team-col {
     display: grid;
-    grid-template-columns: repeat(2, 2fr); 
-    gap: 20px 200px;
-    margin-left: 50px;
+    grid-template-columns: auto auto; 
+    gap: 5vw 20vw;
+    margin-left: 2vw;
     margin-bottom: 2rem;
 }
 
-.description-col-box {
-    width: 320px;
+.description-grid-box {
+    width: 20vw;
+    word-wrap: break-word;
 }
-

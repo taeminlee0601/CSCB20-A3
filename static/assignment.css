@@ -10,16 +10,16 @@
     justify-self: right;
 }
 
-.description-col-box {
-    width: 500px;
+.description-grid-box {
+    width: 70%;
 }
 
-.description-col {
-    grid-template-columns: repeat(auto-fill, minmax(300px, vw));
+.description-grid {
+    grid-template-columns: repeat(auto-fill, minmax(50px, vw));
 }
 
 @media screen and (max-width: 768px) {
-    .description-col {
+    .description-grid {
       grid-template-columns: 1fr;
     }
   }
