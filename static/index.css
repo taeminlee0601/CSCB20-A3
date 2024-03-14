@@ -122,7 +122,6 @@ button {
     color: black;
     padding: 12px 16px;
     display: block;
-    max-width: 50%;
 }
 
 button:hover {
