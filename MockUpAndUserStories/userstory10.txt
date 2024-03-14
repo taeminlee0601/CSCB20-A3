@@ -1,0 +1,1 @@
+As a student, the student must be able to access the lab worksheets and the corresponding solutions, organized by week, under the Labs tab under Material
