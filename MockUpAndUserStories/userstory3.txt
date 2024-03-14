@@ -1,0 +1,1 @@
+As a student, the student must be able to see upcoming and current assignments by clicking tab assignment under material, which include total mark, due date, description and how much does it worth in total grade

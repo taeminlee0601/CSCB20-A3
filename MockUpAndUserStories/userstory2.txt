@@ -1,0 +1,1 @@
+As a student, the student must be able to see and download the syllabus in pdf, as well as seeing the course logistic on the web page (including course topics, tutorials, assignments, academic offences, getting help)
