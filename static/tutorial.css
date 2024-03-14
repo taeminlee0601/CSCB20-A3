@@ -18,5 +18,10 @@ h2 {
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
     align-items: center;
-    margin-top: auto
+    margin-top: auto;
+}
+
+.button-a {
+    text-decoration: none;
+    color: black;
 }
