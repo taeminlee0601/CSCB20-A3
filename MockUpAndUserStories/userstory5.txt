@@ -1,0 +1,1 @@
+As a student, when the student clicks the Calendar tab, the student must be able to see all scheduled the office hours for the selected month on Google Calendar, with the member of the teaching team who is hosting the office hours, and see the time and location by clicking on the member (maybe put little icons to represent each or just names could work as well)

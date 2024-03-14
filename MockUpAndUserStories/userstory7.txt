@@ -1,0 +1,1 @@
+As a student, the student must be able to see the information of the instructor and all the TAs by clicking Course Team under Contacts tab
