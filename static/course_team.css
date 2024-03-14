@@ -1,0 +1,35 @@
+@media screen and (max-width: 768px) {
+    .profile {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 20px 0;
+    }
+}
+
+@media screen and (min-width: 701px) {
+    .profile {
+        display: flex;
+        align-items: center;
+    }
+} 
+
+.profile img {
+    width: 8rem;
+    border-radius: 80%;
+    height: auto;
+    margin-right: 2vw;
+}
+
+.team-col {
+    display: grid;
+    grid-template-columns: auto auto; 
+    gap: 5vw 20vw;
+    margin-left: 2vw;
+    margin-bottom: 2rem;
+}
+
+.description-grid-box {
+    width: 20vw;
+    word-wrap: break-word;
+}
