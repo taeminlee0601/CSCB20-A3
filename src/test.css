@@ -1,0 +1,16 @@
+@import url(index.css);
+
+.test-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.h2 {
+    text-align: center;
+}
+
+.description-flex {
+    justify-items: center;
+}

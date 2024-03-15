@@ -1,0 +1,31 @@
+@import url(index.css);
+
+h2 {
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+}
+
+.description-grid-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.button-div {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    align-items: center;
+    margin-top: auto;
+}
+
+.button-a {
+    text-decoration: none;
+    color: black;
+}
+
+button {
+    word-wrap: break-word;
+}

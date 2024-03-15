@@ -1,0 +1,12 @@
+@import url(index.css);
+
+.calendar {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+iframe {
+    padding-bottom: 3rem;
+}

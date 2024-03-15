@@ -1,0 +1,24 @@
+@import url(index.css);
+
+.feedback {
+    margin: auto;
+    width: 85vw
+}
+
+button {
+    float: right;
+}
+
+.input {
+    font-family:"Merriweather Sans";
+    width: 85vw;
+    height: 75vh;
+    position: center;
+    resize: none;
+}
+
+@media screen and (max-width: 850px) {
+    h2 {
+        font-size: 15px;
+    }
+}
