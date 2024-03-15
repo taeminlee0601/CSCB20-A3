@@ -1,9 +1,8 @@
 @import url(../static/index.css);
 
 .feedback {
-    margin-left: 5rem;
-    margin-bottom: 2rem;
-    width: 85%
+    margin: auto;
+    width: 85vw
 }
 
 button {
@@ -12,8 +11,14 @@ button {
 
 .input {
     font-family:"Merriweather Sans";
-    width: 100%;
-    height: 75%;
+    width: 85vw;
+    height: 75vh;
     position: center;
     resize: none;
+}
+
+@media screen and (max-width: 850px) {
+    h2 {
+        font-size: 15px;
+    }
 }
