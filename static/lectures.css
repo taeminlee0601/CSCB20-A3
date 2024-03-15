@@ -1,14 +1,5 @@
 @import url(../static/index.css);
 
-.description-grid a {
-    color: #444;
-}
-
-.description-grid a:hover {
-    color: #444;
-    text-shadow: 1px 1px 1px #9b9b9b;
-}
-
 .description-grid-box {
     min-height: 30vh;
 }
