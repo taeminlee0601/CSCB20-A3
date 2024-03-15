@@ -21,14 +21,6 @@
     align-self: center;
 }
 
-.description-grid-box a {
-    color: #444;
-}
-
-.description-grid-box a:hover {
-    text-shadow: 1px 1px 1px #9b9b9b;
-}
-
 img {
     justify-self: center;
     align-self: center;

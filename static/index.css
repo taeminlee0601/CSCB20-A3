@@ -138,3 +138,11 @@ button:hover {
         width: 80vw;
     }
 }
+
+.description-grid a {
+    color: #444;
+}
+
+.description-grid a:hover {
+    text-shadow: 1px 1px 1px #9b9b9b;
+}
