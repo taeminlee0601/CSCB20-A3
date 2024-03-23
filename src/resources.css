@@ -1,14 +1,10 @@
 @import url(index.css);
 
-.description-grid {
-    justify-items: center;
-}
-
 .description-grid-box {
     display: grid;
-    min-height: 45vh;
-    max-width: 20vw;
-    grid-template-rows: auto auto auto;
+    /* min-height: 45vh;
+    max-width: 20vw; */
+    grid-template-rows: [row1-start] 35% [row1-end] auto auto;
 }
 
 .description-grid-box p {

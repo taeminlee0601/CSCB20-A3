@@ -1,4 +1,5 @@
-.description-grid-box {
-    min-width: 25vw;
-    justify-self: center;
+@import url(index.css);
+
+h2, p {
+    text-align: center;
 }
