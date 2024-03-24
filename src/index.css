@@ -76,11 +76,11 @@ button:hover {
     }
 }
 
-.description-grid, footer a {
+.description-grid a, footer a {
     color: #444;
 }
 
-.description-grid, footer a:hover {
+.description-grid a, footer a:hover {
     text-shadow: 1px 1px 1px #9b9b9b;
 }
 

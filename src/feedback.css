@@ -1,25 +1,52 @@
 @import url(index.css);
 
-.feedback {
-    margin: auto;
-    width: 85vw
+h2 {
+    text-align: center;
+}
+
+.feedback-box-wraper {
+    display: grid;
+    width: 80vw;
+    grid-template-columns: 40vw 40vw;
+    grid-template-rows: 50vh 50vh;
+    place-items: center;
+    justify-content: space-evenly;
+}
+
+.feedback-box {
+    display: grid;
+    grid-template-rows: 20% 70% 10%;
+    width: 35vw;
+    height: 40vh;
+    padding: 2rem;
+    justify-content: center;
+    background-color: white;
+    box-shadow: 1px 1px 5px;
+}
+
+.button-box {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-end;
+    text-decoration: none;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 button {
-    float: right;
-    margin-bottom: 2rem;
+    border-style: hidden;
+    border-radius: 0.5rem;
+    width: 10vw;
+    font-family: 'Merriweather Sans';
+    color: #444;
 }
 
-.input {
+textarea {
     font-family:"Merriweather Sans";
-    width: 85vw;
-    height: 75vh;
-    position: center;
+    width: 35vw;
     resize: none;
+    border-style: hidden;
+    border-radius: 0.5rem;
+    background-color: #f1f1f1;
 }
 
-@media screen and (max-width: 850px) {
-    h2 {
-        font-size: 15px;
-    }
-}

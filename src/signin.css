@@ -65,6 +65,7 @@ select {
 }
 
 input {
+    font-family:"Merriweather Sans";
     border-style: hidden;
     border-bottom: solid;
     border-color: #444;
