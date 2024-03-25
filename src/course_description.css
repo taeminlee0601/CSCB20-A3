@@ -1,13 +1,28 @@
-.description-grid-1-column {
+.course-desc-grid {
     display: grid;
-    grid-template-columns: auto;
-    gap: 25px;
+    grid-template-columns: [column1-start] 60% [column1-end] auto;
+    grid-template-rows: auto auto auto;
+    gap: 1rem 1rem;
+    margin: 5rem;
+    margin-top: 0;
 }
 
-.description-grid-2-column {
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 25px; 
+.description-grid-box {
+    grid-column: 1;
+}
+
+#instructor {
+    grid-column: 2;
+    grid-row-start: 1;
+    grid-row-end: span 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h2, p {
+    text-align: center;
 }
 
 img {
@@ -15,14 +30,16 @@ img {
     height: auto;
 }
 
-.wrapper {
-    margin-left: 20vw;
-    margin-right: 20vw;
-    margin-bottom: 2rem;
-}
-
-h2 {
-    margin-top: 1px !important;
-    margin-block-start: 0px !important;
-    margin-block-end: 0px !important;
+@media screen and (max-width: 768px) {
+    .course-desc-grid {
+        grid-template-columns: 1fr;
+        margin: 0;
+        margin-bottom: 1rem;
+    }
+    .description-grid-box {
+        width: 80vw;
+    }
+    #instructor {
+        grid-column: 1;
+    }
 }

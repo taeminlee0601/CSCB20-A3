@@ -5,8 +5,6 @@
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
-}
-
-iframe {
-    padding-bottom: 3rem;
+    box-shadow: 1px 1px 5px;
+    margin-bottom: 2rem;
 }
