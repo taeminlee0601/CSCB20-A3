@@ -11,6 +11,8 @@
       href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
       rel="stylesheet"
     />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../static/src/signin.js"></script>
   </head>
   <body>
     <main>
@@ -43,15 +45,28 @@
           </select>
           <label for="user-info">Information</label>
           <!-- <label for="user-info">Full Name</label> -->
-          <input name="input-full-name" placeholder="Full Name" />
+          <input
+            class="required"
+            name="input-full-name"
+            placeholder="Full Name"
+          />
           <!-- <label for="user-info">Utorid</label> -->
-          <input name="input-utorid" placeholder="Utorid" />
+          <input class="required" name="input-utorid" placeholder="Utorid" />
           <!-- <label for="user-info">Username</label> -->
-          <input name="input-username" placeholder="Username" />
+          <input
+            class="required"
+            name="input-username"
+            placeholder="Username"
+          />
           <!-- <label for="user-info">Password</label> -->
-          <input type="password" name="input-password" placeholder="Password" />
+          <input
+            class="required"
+            type="password"
+            name="input-password"
+            placeholder="Password"
+          />
           <div class="button-box">
-            <button>Sign up</button>
+            <button id="sign">Sign up</button>
           </div>
         </form>
         <p>Already have an account? <a href="signin.html">Sign In</a></p>
