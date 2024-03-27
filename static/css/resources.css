@@ -23,3 +23,11 @@ img {
     max-width: 8vw;
     height: auto;
 }
+
+.tab, .navbar-title {
+    background-color: #559AB5;
+}
+
+.tab:hover {
+    background-color: #36738b;
+}

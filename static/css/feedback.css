@@ -43,3 +43,10 @@ textarea {
     background-color: #f1f1f1;
 }
 
+.tab, .navbar-title {
+    background-color: #557BB5;
+}
+
+.tab:hover {
+    background-color: #385e96;
+}
