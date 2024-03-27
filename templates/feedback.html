@@ -1,90 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CSCB20 Anonymous Feedback</title>
-    <link rel="stylesheet" href="feedback.css" />
-    <!-- <link href='https://fonts.googleapis.com/css?family=Merriweather Sans' rel='stylesheet'> -->
-    <link rel="preconnect" href="https://fonts.googleapis.com/" />
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <!-- This is the header/navigation bar of the page -->
-    <header>
-      <div class="navbar">
-        <a class="navbar-title" href="index.html">CSCB20</a>
-        <div class="dropdown">
-          <a class="tab">Home</a>
-          <div class="dropdown-content">
-            <a href="course_description.html">Course Description</a>
-            <a href="syllabus.html">Syllabus</a>
-          </div>
-        </div>
-        <div class="dropdown">
-          <a class="tab">Material</a>
-          <div class="dropdown-content">
-            <a href="assignment.html">Assignments</a>
-            <a href="lectures.html">Lectures</a>
-            <a href="tutorials.html">Labs</a>
-          </div>
-        </div>
-        <a class="tab" href="resources.html">Resources</a>
-        <a class="tab" href="calendar.html">Calendar</a>
-        <div class="dropdown">
-          <a class="tab">Contact</a>
-          <div class="dropdown-content">
-            <a href="course_team.html">Course Team</a>
-            <a href="feedback.html">Feedback</a>
-          </div>
-        </div>
-      </div>
-    </header>
-    <main>
-      <!-- This is the main body -->
-      <h1>Anonymous Feedback</h1>
-      <h2>Tell us about your experience with CSCB20!</h2>
-      <div class="feedback-box-wraper">
-        <div class="feedback-box">
-          <label for="question"
-            >What do you like about the instructor teaching?</label
-          >
-          <textarea class="input" rows="30"></textarea>
-          <div class="button-box"><button>Submit</button></div>
-        </div>
-        <div class="feedback-box">
-          <label for="question"
-            >What do you recommend the instructor to do to improve their
-            teaching?</label
-          >
-          <textarea class="input" rows="30"></textarea>
-          <div class="button-box"><button>Submit</button></div>
-        </div>
-        <div class="feedback-box">
-          <label for="question">What do you like about the labs?</label>
-          <textarea class="input" rows="30"></textarea>
-          <div class="button-box"><button>Submit</button></div>
-        </div>
-        <div class="feedback-box">
-          <label for="question"
-            >What do you recommend the lab instructors to do to improve their
-            lab teaching?</label
-          >
-          <textarea class="input" rows="30"></textarea>
-          <div class="button-box"><button>Submit</button></div>
-        </div>
-      </div>
-    </main>
-    <footer>
-      <p>CSCB20 - Introduction to Web Application and Database</p>
-      <a href="https://web.cs.toronto.edu/people/faculty-directory"
-        >Department of Computer Science at U of T</a
+{% extends 'template.html' %} {% block more_css %}
+<link rel="stylesheet" href="static/css/feedback.css" />
+{% endblock %} {% block content %}
+<main>
+  <!-- This is the main body -->
+  <h1>Anonymous Feedback</h1>
+  <h2>Tell us about your experience with CSCB20!</h2>
+  <div class="feedback-box-wraper">
+    <div class="feedback-box">
+      <label for="question"
+        >What do you like about the instructor teaching?</label
       >
-      <p>Site designed by Bomin Kim, Taemin Lee, and Paul Nguyen</p>
-    </footer>
-  </body>
-</html>
+      <textarea class="input" rows="30"></textarea>
+      <div class="button-box"><button>Submit</button></div>
+    </div>
+    <div class="feedback-box">
+      <label for="question"
+        >What do you recommend the instructor to do to improve their
+        teaching?</label
+      >
+      <textarea class="input" rows="30"></textarea>
+      <div class="button-box"><button>Submit</button></div>
+    </div>
+    <div class="feedback-box">
+      <label for="question">What do you like about the labs?</label>
+      <textarea class="input" rows="30"></textarea>
+      <div class="button-box"><button>Submit</button></div>
+    </div>
+    <div class="feedback-box">
+      <label for="question"
+        >What do you recommend the lab instructors to do to improve their lab
+        teaching?</label
+      >
+      <textarea class="input" rows="30"></textarea>
+      <div class="button-box"><button>Submit</button></div>
+    </div>
+  </div>
+</main>
+{% endblock %}
