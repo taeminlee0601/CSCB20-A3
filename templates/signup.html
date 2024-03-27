@@ -50,6 +50,13 @@
           <input name="input-username" placeholder="Username" />
           <!-- <label for="user-info">Password</label> -->
           <input type="password" name="input-password" placeholder="Password" />
+          {% with messages = get_flashed_messages() %}
+          {% if messages %}
+              {% for message in messages %}
+                <p style="color:red">{{ message }}</p>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
           <div class="button-box">
             <button>Sign up</button>
           </div>
