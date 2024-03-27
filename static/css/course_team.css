@@ -30,3 +30,11 @@
         min-width: 50vw;
     }
 }
+
+.tab, .navbar-title {
+    background-color: #557BB5;
+}
+
+.tab:hover {
+    background-color: #385e96;
+}

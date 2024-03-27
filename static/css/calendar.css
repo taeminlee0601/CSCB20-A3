@@ -16,3 +16,11 @@ iframe {
     width: 75vw;
     height: 75vw;
 }
+
+.tab, .navbar-title {
+    background-color: #8C55B5;
+}
+
+.tab:hover {
+    background-color: #6f369a;
+}
