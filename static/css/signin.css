@@ -9,6 +9,8 @@ body {
 main {
     display: flex;
     flex-direction: row;
+    gap: 0;
+    justify-content: center;
 }
 
 .sign-in-desc-box {
@@ -33,7 +35,7 @@ main {
     height: auto;
     justify-content: center;
     background-color: white;
-    box-shadow: 1px 1px 5px;
+    box-shadow: 0.5px 0.5px 3px;
     text-align: center;
 }
 
@@ -65,6 +67,7 @@ select {
 }
 
 input {
+    font-family:"Merriweather Sans";
     border-style: hidden;
     border-bottom: solid;
     border-color: #444;
