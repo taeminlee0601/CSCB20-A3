@@ -1,0 +1,169 @@
+/* default selectors */
+
+body {
+    font-family: 'Merriweather Sans';
+    color: #444;
+    display: grid;
+    grid-template-rows: 8vh auto 15vh;
+    justify-items: center;
+    max-width: 100vw;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    background-color: #f1f1f1;
+}
+
+main {
+    margin-top: 0;
+    width: 80vw;
+}
+
+@media screen and (max-width: 430px) {
+    main {
+        width: 85vw;
+    }
+}
+
+footer {
+    color: white;
+    background-color: #444;
+    width: 100vw;
+    height: 15vh;
+    text-align: center;
+    align-self: end;
+}
+
+h1 {
+    font-family: 'Merriweather Sans';
+    padding: 1rem;
+    text-align: left;
+}
+
+/* description boxes */
+
+.description-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 1rem 1rem;
+    margin-bottom: 2rem;
+}
+
+.description-grid-box {
+    padding: 1rem;
+    justify-content: center;
+    background-color: white;
+    box-shadow: 0.5px 0.5px 3px;
+}
+
+.button-box {
+    display: flex;
+    flex-flow: column;
+    align-items: stretch;
+    text-decoration: none;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+button {
+    background-color:rgb(210, 210, 210);
+    padding: 12px 16px;
+    border-style: hidden;
+    border-radius: 1.5rem;
+    font-family: 'Merriweather Sans';
+    color: #444;
+}
+
+button:hover {
+    background-color: rgb(160, 160, 160);
+}
+
+@media screen and (max-width: 768px) {
+    .description-grid {
+        grid-template-columns: 1fr;
+        margin: 0;
+        margin-bottom: 1rem;
+    }
+    .description-grid-box {
+        width: 80vw;
+    }
+    html {
+        font-size: 80%;
+    }
+}
+
+a {
+    color: #444;
+}
+
+footer a {
+    color: white;
+}
+
+a:hover {
+    text-shadow: 0.5px 0.5px 0.5px #9b9b9b;
+}
+/* Nav bar */
+.navbar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 3 columns with equal width */
+}
+
+.tab {
+    display: block;
+    background-color: #565EB6;
+    color: white;
+    font-family: 'Merriweather Sans';
+    font-size: large;
+    text-align: center;
+    padding: 20px;
+    text-decoration: none;
+}
+
+.navbar-title {
+    display: block;
+    background-color: #565EB6;
+    color: white;
+    font-family: 'Merriweather Sans';
+    font-size: large;
+    text-align: center;
+    padding: 20px;
+    text-decoration: none;
+}
+
+.tab:hover {
+    background-color: #41478B;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    text-align: center;
+    min-width: 100%;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    background-color:rgb(211, 211, 211);
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: rgb(161, 161, 161);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}

@@ -1,0 +1,44 @@
+.course-desc-grid {
+    display: grid;
+    grid-template-columns: [column1-start] 60% [column1-end] auto;
+    grid-template-rows: auto auto auto;
+    gap: 1rem 1rem;
+    margin-bottom: 2rem;
+}
+
+.description-grid-box {
+    grid-column: 1;
+}
+
+#instructor {
+    grid-column: 2;
+    grid-row-start: 1;
+    grid-row-end: span 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h2, p {
+    text-align: center;
+}
+
+img {
+    width: 15rem;
+    height: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .course-desc-grid {
+        grid-template-columns: 1fr;
+        margin: 0;
+        margin-bottom: 1rem;
+    }
+    .description-grid-box {
+        width: 80vw;
+    }
+    #instructor {
+        grid-column: 1;
+    }
+}

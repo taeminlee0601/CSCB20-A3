@@ -1,0 +1,24 @@
+@import url(index.css);
+
+.test-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    box-shadow: 0.5px 0.5px 3px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.description-grid {
+    grid-template-columns: 1fr;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.description-grid-box {
+    justify-self: center;
+    min-width: 60vw;
+}

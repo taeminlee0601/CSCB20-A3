@@ -1,0 +1,9 @@
+@import url(index.css);
+
+.description-grid-box {
+    min-height: 30vh;
+}
+
+h2, h3 {
+    text-align: center;
+}

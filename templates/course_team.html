@@ -1,0 +1,118 @@
+{% extends 'template.html' %} {% block more_css %}
+<link rel="stylesheet" href="static/css/index.css" />
+<link rel="stylesheet" href="static/css/course_team.css" />
+{% endblock %} {% block content %}
+<main>
+  <h1>Course team</h1>
+  <div class="team-col">
+    <div class="profile">
+      <img
+        src="{{url_for('static', filename='src/images/purva.jpg')}}"
+        alt=""
+      />
+      <div class="description-grid-box">
+        <h2>Dr. Purva Gawde</h2>
+        <p>Course coordinator/Course instructor</p>
+        <ul>
+          <li>
+            Email:
+            <a href="mailto:purvagawde@utoronto.ca">purvagawde@utoronto.ca</a>
+          </li>
+          <li>Office hour: Tuesday, 12pm - 1pm</li>
+          <li>Office: IC 484</li>
+        </ul>
+      </div>
+    </div>
+    <div class="profile">
+      <img
+        src="{{url_for('static', filename='src/images/navinn.png')}}"
+        alt=""
+      />
+      <div class="description-grid-box">
+        <b><h2>Navinn Ravindaran</h2></b>
+        <p>Teaching Assistant</p>
+        <ul>
+          <li>
+            Email:
+            <a href="mailto:sample1@utoronto.ca">sample1@utoronto.ca</a>
+          </li>
+          <li>Office hour: Friday, 11am - 12pm</li>
+          <li>Office: IC 402</li>
+        </ul>
+      </div>
+    </div>
+    <div class="profile">
+      <img
+        src="{{url_for('static', filename='src/images/nishan.png')}}"
+        alt=""
+      />
+      <div class="description-grid-box">
+        <b><h2>Nisha Rajendran</h2></b>
+        <p>Teaching Assistant</p>
+        <ul>
+          <li>
+            Email:
+            <a href="mailto:sample2@utoronto.ca">sample2@utoronto.ca</a>
+          </li>
+          <li>Office hour: Wednesday, 10am - 11am</li>
+          <li>Office: IC 402</li>
+        </ul>
+      </div>
+    </div>
+    <div class="profile">
+      <img
+        src="{{url_for('static', filename='src/images/danny.png')}}"
+        alt=""
+      />
+      <div class="description-grid-box">
+        <b><h2>Danny Chen</h2></b>
+        <p>Teaching Assistant</p>
+        <ul>
+          <li>
+            Email:
+            <a href="mailto:sample3@utoronto.ca">sample3@utoronto.ca</a>
+          </li>
+          <li>Office hour: Wednesday, 10am - 11am</li>
+          <li>Office: IC 402</li>
+        </ul>
+      </div>
+    </div>
+    <div class="profile">
+      <img
+        src="{{url_for('static', filename='src/images/joshua.png')}}"
+        alt=""
+      />
+      <div class="description-grid-box">
+        <b><h2>Joshua Concon</h2></b>
+        <p>Teaching Assistant</p>
+        <ul>
+          <li>
+            Email:
+            <a href="mailto:sample4@utoronto.ca">sample4@utoronto.ca</a>
+          </li>
+          <li>Office hour: Wednesday, 3pm - 4pm</li>
+          <li>Office: IC 402</li>
+        </ul>
+      </div>
+    </div>
+    <div class="profile">
+      <img
+        src="{{url_for('static', filename='src/images/pourya.png')}}"
+        alt=""
+      />
+      <div class="description-grid-box">
+        <b><h2>Pourya Moghadam</h2></b>
+        <p>Teaching Assistant</p>
+        <ul>
+          <li>
+            Email:
+            <a href="mailto:sample5@utoronto.ca">sample5@utoronto.ca</a>
+          </li>
+          <li>Office hour: Monday, 11am - 12am</li>
+          <li>Office: IC 402</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

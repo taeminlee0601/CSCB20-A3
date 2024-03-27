@@ -1,0 +1,32 @@
+.profile img {
+    width: 8rem;
+    border-radius: 80%;
+    height: auto;
+    margin-right: 2vw;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+}
+
+.team-col {
+    display: grid;
+    grid-template-columns: auto auto; 
+    gap: 5vh 20vw;
+    margin-bottom: 2rem;
+}
+
+.description-grid-box {
+    width: 20vw;
+    word-wrap: break-word;
+}
+
+@media screen and (max-width: 1080px) {
+    .team-col {
+        grid-template-columns: 1fr; 
+    }
+    .description-grid-box {
+        min-width: 50vw;
+    }
+}

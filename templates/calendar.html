@@ -1,0 +1,15 @@
+{% extends 'template.html' %} {% block more_css %}
+<link rel="stylesheet" href="static/css/calendar.css" />
+{% endblock %} {% block content %}
+<main>
+  <h1>Calendar</h1>
+  <div class="calendar">
+    <iframe
+      src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FToronto&bgcolor=%238ab1ff&showPrint=0&showTz=0&showCalendars=0&mode=MONTH&src=MjQ2NTMyNWRjYzU0MWU3ZjAzNjE0OWU2NTJiZmY2ZjIxY2MwZjU3NmY1MmNmODEzMjBmNDhjYWYxY2UxZGEwM0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23009688"
+      style="border-width: 0"
+      frameborder="0"
+      scrolling="no"
+    ></iframe>
+  </div>
+</main>
+{% endblock %}

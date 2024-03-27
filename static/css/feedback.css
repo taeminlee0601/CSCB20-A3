@@ -1,0 +1,45 @@
+@import url(index.css);
+
+h2 {
+    padding: 1rem;
+}
+
+.feedback-box-wraper {
+    display: grid;
+    width: 80vw;
+    grid-template-columns: 40vw 40vw;
+    grid-template-rows: 50vh 50vh;
+    place-items: center;
+    justify-content: space-evenly;
+}
+
+.feedback-box {
+    display: grid;
+    grid-template-rows: 20% 70% 10%;
+    width: 35vw;
+    height: 40vh;
+    padding: 2rem;
+    justify-content: center;
+    background-color: white;
+    box-shadow: 0.5px 0.5px 3px;
+}
+
+.button-box {
+    align-items: flex-end;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+button {
+    width: 10vw;
+}
+
+textarea {
+    font-family:"Merriweather Sans";
+    width: 35vw;
+    resize: none;
+    border-style: hidden;
+    border-radius: 0.5rem;
+    background-color: #f1f1f1;
+}
+

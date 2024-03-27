@@ -1,0 +1,23 @@
+iframe {
+    width: 80vw;
+    height: 70vh;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+    iframe {
+        height: 60vh;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    iframe {
+        width: 85vw;
+        height: 50vh;
+    }
+}
