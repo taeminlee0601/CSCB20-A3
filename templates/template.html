@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="static/css/index.css" />
+    <link rel="stylesheet" href="../static/css/index.css" />
     {% block more_css %}
     {% endblock %}
     <link rel="preconnect" href="https://fonts.googleapis.com/" />
@@ -12,6 +12,7 @@
       href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
       rel="stylesheet"
     />
+    <script src="../static/js/navbar.js"></script>
     {% if pagename %}
       <title>{{pagename}}</title>
     {% else %}
@@ -22,28 +23,50 @@
     <header>
       <div class="navbar">
         <a class="navbar-title" href="index.html">CSCB20</a>
-        <div class="dropdown">
-          <a class="tab">Home</a>
-          <div class="dropdown-content">
-            <a href="course_description.html">Course Description</a>
-            <a href="syllabus.html">Syllabus</a>
+        <div class="navbar-filler">
+          <div class="menu-button" onclick="menuBarClicked(this, document.querySelector('.tab-grid'))">
+            <div class="menu-bar1"></div>
+            <div class="menu-bar2"></div>
+            <div class="menu-bar3"></div>
           </div>
         </div>
-        <div class="dropdown">
-          <a class="tab">Material</a>
-          <div class="dropdown-content">
-            <a href="assignment.html">Assignments</a>
-            <a href="lectures.html">Lectures</a>
-            <a href="tutorials.html">Labs</a>
+        <div class="tab-grid">
+          <div class="dropdown">
+            <a class="tab" onclick="showDropdown(document.getElementById('dropdown-content-mobile-home'))">Home</a>
+            <div class="dropdown-content">
+              <a href="course_description.html">Course Description</a>
+              <a href="syllabus.html">Syllabus</a>
+            </div>
           </div>
-        </div>
-        <a class="tab" href="resources.html">Resources</a>
-        <a class="tab" href="calendar.html">Calendar</a>
-        <div class="dropdown">
-          <a class="tab">Contact</a>
-          <div class="dropdown-content">
-            <a href="course_team.html">Course Team</a>
-            <a href="feedback.html">Feedback</a>
+          <div class="dropdown-content-mobile" id="dropdown-content-mobile-home">
+            <a class="dropdown-tab" href="course_description.html">Course Description</a>
+            <a class="dropdown-tab" href="syllabus.html">Syllabus</a>
+          </div>
+          <div class="dropdown">
+            <a class="tab" onclick="showDropdown(document.getElementById('dropdown-content-mobile-material'))">Material</a>
+            <div class="dropdown-content">
+              <a href="assignment.html">Assignments</a>
+              <a href="lectures.html">Lectures</a>
+              <a href="tutorials.html">Labs</a>
+            </div>
+          </div>
+          <div class="dropdown-content-mobile" id="dropdown-content-mobile-material">
+            <a class="dropdown-tab" href="assignment.html">Assignments</a>
+            <a class="dropdown-tab" href="lectures.html">Lectures</a>
+            <a class="dropdown-tab" href="tutorials.html">Labs</a>
+          </div>
+          <a class="tab" href="resources.html">Resources</a>
+          <a class="tab" href="calendar.html">Calendar</a>
+          <div class="dropdown">
+            <a class="tab" onclick="showDropdown(document.getElementById('dropdown-content-mobile-contact'))">Contact</a>
+            <div class="dropdown-content">
+              <a href="course_team.html">Course Team</a>
+              <a href="feedback.html">Feedback</a>
+            </div>
+          </div>
+          <div class="dropdown-content-mobile" id="dropdown-content-mobile-contact">
+            <a class="dropdown-tab" href="course_team.html">Course Team</a>
+            <a class="dropdown-tab" href="feedback.html">Feedback</a>
           </div>
         </div>
       </div>
