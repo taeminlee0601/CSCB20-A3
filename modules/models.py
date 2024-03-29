@@ -1,19 +1,59 @@
 from flask import flash
 from flask_sqlalchemy import SQLAlchemy
-from flask_bcrypt import Bcrypt
 
 db = SQLAlchemy()
-bcrypt = Bcrypt()
 
 class Student(db.Model):
     __tablename__ = 'Student'
-    utorid = db.Column(db.String(10), primary_key = True)
+    utorid = db.Column(db.String(20), primary_key = True)
     name = db.Column(db.String(100), nullable = False)
 
 class Instructor(db.Model):
     __tablename__ = 'Instructor'
-    utorid = db.Column(db.String(10), primary_key = True)
+    utorid = db.Column(db.String(20), primary_key = True)
     name = db.Column(db.String(100), nullable = False)
+
+class Assignment(db.Model):
+    __tablename__ = 'Assignment'
+    aid = db.Column(db.Integer, primary_key = True, autoincrement = True)
+    name = db.Column(db.String(30), nullable = False)
+    due_date = db.Column(db.String(20), nullable = False)
+    description = db.Column(db.String(2000), nullable = False)
+    weight = db.Column(db.Float, nullable = False)
+    total_point = db.Column(db.Integer, nullable = False)
+
+class Assignment_Grade(db.Model):
+    __tablename__ = 'Assignment_Grade'
+    sid = db.Column(db.String(20), primary_key = True)
+    aid = db.Column(db.Integer)
+    grade = db.Column(db.Float)
+
+class Exam(db.Model):
+    __tablename__ = 'Exam'
+    eid = db.Column(db.Integer, primary_key = True, autoincrement = True)
+    name = db.Column(db.String(30), nullable = False)
+    date = db.Column(db.String(20), nullable = False)
+    weight = db.Column(db.Float, nullable = False)
+
+class Exam_Grade(db.Model):
+    __tablename__ = 'Exam_Grade'
+    sid = db.Column(db.String(20), primary_key = True)
+    eid = db.Column(db.Integer)
+    grade = db.Column(db.Float)
+
+class Assignment_Regrade_Request(db.Model):
+    __tablename__ = 'Assignment_Regrade_Request'
+    reqid = db.Column(db.Integer, primary_key = True, autoincrement = True)
+    sid = db.Column(db.String(20)) 
+    aid = db.Column(db.Integer)
+    description = db.Column(db.String(2000))
+
+class Exam_Regrade_Request(db.Model):
+    __tablename__ = 'Exam_Regrade_Request'
+    reqid = db.Column(db.Integer, primary_key = True, autoincrement = True)
+    sid = db.Column(db.String(20)) 
+    eid = db.Column(db.Integer)
+    description = db.Column(db.String(2000))
 
 class Login(db.Model):
     __tablename__ = 'Login'
@@ -22,30 +62,11 @@ class Login(db.Model):
     password = db.Column(db.String(50), nullable = False)
     user_type = db.Column(db.String(20), nullable = False)
 
+class Feedback(db.Model):
+    __tablename__ = 'Feedback'
+    iid = db.Column(db.String(20), primary_key = True)
+    like_about_instructor = db.Column(db.String(2000))
+    improve_instructor = db.Column(db.String(2000))
+    like_about_lab = db.Column(db.String(2000))
+    improve_lab = db.Column(db.String(2000))
 
-def add_person_to_db(login_info, student_info):
-    if check_user_exist(login_info.username):
-        flash('This username is already exist!')
-        return
-    # hash password before login
-    login_info.password = bcrypt.generate_password_hash(login_info.password).decode('utf-8')
-    db.session.add(login_info)
-    db.session.add(student_info)
-    db.session.commit()
-    flash('Register user sucessfully!')
-
-def get_login_info():
-    return Login.query.all()
-
-def check_user_exist(username):
-    all_users = get_login_info()
-    for user in all_users:
-        if user.username == username:
-            return True
-    return False
-
-def login_check(login_info):
-    get_user = Login.query.filter_by(username = login_info[0]).first()
-    if get_user == None:
-        return False
-    return get_user.username == login_info[0] and bcrypt.check_password_hash(get_user.password, login_info[1])

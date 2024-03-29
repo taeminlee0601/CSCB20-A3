@@ -1,7 +1,8 @@
 from flask import Flask, render_template, redirect, url_for, session
 from datetime import timedelta
-from modules.models import db, bcrypt
-from modules.auth import auth
+from modules.models import db
+from modules.auth import auth, bcrypt
+from modules.feedback import fb
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'b913f47618cb5c3d870b48d7'
@@ -9,8 +10,11 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///cscb20_a3.db'
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=40)
 
 db.init_app(app)
+with app.app_context():
+    db.create_all()
 bcrypt.init_app(app)
 app.register_blueprint(auth)
+app.register_blueprint(fb)
 
 @app.route('/home')
 @app.route('/index.html')
@@ -52,14 +56,6 @@ def course_team():
         return redirect(url_for('signin'))
     pagename = 'Course Team'
     return render_template('course_team.html', pagename=pagename)
-
-@app.route('/feedback')
-@app.route('/feedback.html')
-def feedback():
-    if 'username' not in session.keys():
-        return redirect(url_for('signin'))
-    pagename = 'Feedback'
-    return render_template('feedback.html', pagename=pagename)
 
 @app.route('/lectures')
 @app.route('/lectures.html')

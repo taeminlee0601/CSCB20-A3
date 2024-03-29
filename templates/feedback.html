@@ -5,37 +5,39 @@
   <!-- This is the main body -->
   <h1>Anonymous Feedback</h1>
   <h2>Tell us about your experience with CSCB20!</h2>
-  <label for="user-type">Send the anoymous feedback to</label>
-  <select name="instructor">
-    <option value="purva">Professor Purva</option>
-    <option value="navinn">TA Navinn</option>
-    <option value="nisha">TA Nisha</option>
-    <option value="danny">TA Danny</option>
-    <option value="joshua">TA Joshua</option>
-    <option value="pourya">TA Pourya</option>
-  </select>
-  <div class="feedback-box">
-    <label for="question"
-      >What do you like about the instructor teaching?</label
-    >
-    <textarea
-      class="input"
-      rows="30"
-      name="qs-like-about-instructor"
-    ></textarea>
-    <label for="question"
-      >What do you recommend the instructor to do to improve their
-      teaching?</label
-    >
-    <textarea class="input" rows="30" name="qs-improve-instructor"></textarea>
-    <label for="question">What do you like about the labs?</label>
-    <textarea class="input" rows="30" name="qs-like-about-lab"></textarea>
-    <label for="question"
-      >What do you recommend the lab instructors to do to improve their lab
-      teaching?</label
-    >
-    <textarea class="input" rows="30" name="qs-improve-lab"></textarea>
-    <div class="button-box"><button>Submit</button></div>
-  </div>
+  <form action="http://127.0.0.1:5000/feedback" method="POST">
+    <label for="user-type">Send the anoymous feedback to</label>
+    <select name="instructor">
+      <option value="purva">Professor Purva</option>
+      <option value="navinn">TA Navinn</option>
+      <option value="nisha">TA Nisha</option>
+      <option value="danny">TA Danny</option>
+      <option value="joshua">TA Joshua</option>
+      <option value="pourya">TA Pourya</option>
+    </select>
+    <div class="feedback-box">
+      <label for="question"
+        >What do you like about the instructor teaching?</label
+      >
+      <textarea
+        class="input"
+        rows="30"
+        name="qs-like-about-instructor"
+      ></textarea>
+      <label for="question"
+        >What do you recommend the instructor to do to improve their
+        teaching?</label
+      >
+      <textarea class="input" rows="30" name="qs-improve-instructor"></textarea>
+      <label for="question">What do you like about the labs?</label>
+      <textarea class="input" rows="30" name="qs-like-about-lab"></textarea>
+      <label for="question"
+        >What do you recommend the lab instructors to do to improve their lab
+        teaching?</label
+      >
+      <textarea class="input" rows="30" name="qs-improve-lab"></textarea>
+      <div class="button-box"><button type="submit">Submit</button></div>
+    </div>
+  </form>
 </main>
 {% endblock %}
