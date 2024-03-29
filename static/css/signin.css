@@ -80,22 +80,6 @@ input:focus {
     outline: none;
 }
 
-.button-box {
-    display: flex;
-    flex-flow: column;
-    align-items: stretch;
-    text-decoration: none;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-}
-
-button {
-    border-style: hidden;
-    border-radius: 1.5rem;
-    font-family: 'Merriweather Sans';
-    color: #444;
-}
-
 ul {
     font-size: 85%;
     margin: 0;
@@ -115,4 +99,13 @@ p a {
 
 p a:hover {
     text-shadow: 1px 1px 1px #9b9b9b;
+}
+
+#sign.active {
+    background-color: rgb(14, 48, 98);
+    color: white;
+}
+
+#sign.active:hover {
+    background-color: rgb(44, 81, 138);
 }
