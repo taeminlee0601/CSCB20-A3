@@ -1,19 +1,79 @@
 {% extends 'template.html' %} {% block more_css %}
 <link rel="stylesheet" href="static/css/index.css" />
+<link rel="stylesheet" href="static/css/course_description.css" />
 {% endblock %} {% block content %}
-<main>
-  <h1>Welcome to CSCB20 Introduction to Web Application and Database</h1>
-  <div style="display: grid">
-    <img
-      src="{{url_for('static', filename='src/images/giphy.gif')}}"
-      alt=""
-      style="
-        width: 50vw;
-        place-self: center;
-        margin-bottom: 2rem;
-        box-shadow: 0.5px 0.5px 3px;
-      "
-    />
+<main
+  style="
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  "
+>
+  <div class="home-title" style="width: 100vw; height: 50vh">
+    <h1>Welcome to CSCB20 Introduction to Web Application and Database</h1>
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
+
+    <dotlottie-player
+      src="https://lottie.host/b8847d81-beaa-4927-b7b5-ea1cde60e6f7/RyrC0hPnsv.lottie"
+      background="transparent"
+      speed="1"
+      style="height: 50vh"
+      autoplay
+    ></dotlottie-player>
+  </div>
+  <div class="course-desc" style="width: 80vw">
+    <h1>Course Description</h1>
+    <div class="course-desc-grid">
+      <div class="description-grid-box">
+        <h2>Course description</h2>
+        <p>A practical introduction to databases and web app development</p>
+        <ul>
+          Databases
+          <li>terminology and applications</li>
+          <li>creating, querying and updating databases</li>
+          <li>the entity-relationship model for database design</li>
+        </ul>
+        <ul>
+          Web Documents and Applications
+          <li>static and interactive documents</li>
+          <li>web servers and dynamic server-generated content</li>
+          <li>web application development and interface with databases</li>
+        </ul>
+      </div>
+      <div class="description-grid-box">
+        <h2>Prerequisites</h2>
+        <p>
+          Some experience with programming in an imperative language such as
+          Python, Java or C. Recommend preparation: CSCA08
+        </p>
+      </div>
+      <div class="description-grid-box">
+        <h2>Exclusion</h2>
+        <p>
+          This course may not be taken after - or concurrently with - any C- or
+          D-level CSC course.
+        </p>
+      </div>
+      <div class="description-grid-box" id="instructor">
+        <h2>Instructor</h2>
+        <img
+          src="{{url_for('static', filename='src/images/purva.jpg')}}"
+          alt=""
+        />
+        <p>Dr. Purva Gawde</p>
+        <p>
+          Email:
+          <a href="mailto: purva.gawde@utoronto.ca">purva.gawde@utoronto.ca</a>
+        </p>
+        <p>Telephone number: 647.601.4658</p>
+        <p>Lecture: Monday 9am - 11am SW319</p>
+        <p>Building IC 484</p>
+      </div>
+    </div>
   </div>
 </main>
 {% endblock %}
