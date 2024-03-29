@@ -49,6 +49,15 @@ h1 {
     z-index: 1;
 }
 
+select {
+    border-style: hidden;
+    border-bottom: solid;
+    border-color: #444;
+    margin-bottom: 2rem;
+    font-family: 'Merriweather Sans';
+    color: #444;
+}
+
 /* description boxes */
 
 .description-grid {
