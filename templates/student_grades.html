@@ -1,5 +1,4 @@
-{% extends 'user_template.html' %} 
-{% block more_css %}
+{% extends 'user_template.html' %} {% block more_css %}
 <link rel="stylesheet" href="../static/css/student_grades.css" />
 {% endblock %} {% block more_script %}
 <script src="../static/js/student_grades.js"></script>
@@ -61,7 +60,17 @@
     </table>
   </div>
   <div id="remark-content" style="display: none">
-    <h3>Remark Request</h3>
+    <div class="content-header">
+      <h3>Remark Request</h3>
+      <button>
+        <img
+          id="close-button"
+          src="../static/src/images/close.png"
+          alt="close-button"
+          style="width: 50%; justify-self: end; background-color: none"
+        />
+      </button>
+    </div>
     <p>
       Make sure you have read the sample solution posted before submitting the
       remark request. If you have, please indicate the question number and
