@@ -11,7 +11,7 @@ table {
 
 tr {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     align-items: center;
     margin-top: 0.1rem;
     margin-bottom: 0.1rem;
@@ -33,7 +33,7 @@ td {
     font-size: 0.85em;
 }
 
-.remark-request {
+.view-comment {
     justify-self: end;
 }
 
@@ -49,7 +49,7 @@ button:hover {
     background-color: rgb(200, 200, 200);
 }
 
-#remark-content {
+#comment-content {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -67,27 +67,15 @@ button:hover {
     padding: 1vw;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    row-gap: 0.5rem;
-    align-items: flex-end;
-}
-
-textarea {
-    font-family:"Merriweather Sans";
+p {
+    font-size: 0.85em;
     width: 30vw;
     height: 15vw;
-    resize: none;
     border-style: hidden;
     border-radius: 0.5rem;
     background-color: white;
-}
-
-p {
-    font-size: 0.85em;
-    text-align: center;
-    width: 90%
+    color: black;
+    padding: 0.5rem;
 }
 
 h3 {

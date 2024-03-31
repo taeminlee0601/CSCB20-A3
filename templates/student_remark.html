@@ -1,7 +1,7 @@
 {% extends 'user_template.html' %} {% block more_css %}
-<link rel="stylesheet" href="../static/css/student_grades.css" />
+<link rel="stylesheet" href="../static/css/student_remark.css" />
 {% endblock %} {% block more_script %}
-<script src="../static/js/student_grades.js"></script>
+<script src="../static/js/student_remark.js"></script>
 {% endblock %}{% block content %}
 <main>
   <h1>CSCB20</h1>
@@ -11,25 +11,22 @@
       <thead>
         <th>name</th>
         <th>mark</th>
-        <th>date</th>
         <th></th>
       </thead>
       <tbody>
         <tr>
           <td>Dummy Assignment</td>
           <td>100%</td>
-          <td>2024-03-30</td>
-          <td class="remark-request">
-            <button id="remark-button">Remark Request</button>
+          <td class="view-comment">
+            <button id="view-comment-button">View Comment</button>
           </td>
         </tr>
-        {% for grade in grades %}
+        {% for remark in remark_results %}
         <tr>
-          <td>{{grade.name}}</td>
-          <td>{{grade.mark}}</td>
-          <td>{{grad.date}}</td>
-          <td class="remark-request">
-            <button id="remark-button">Remark Request</button>
+          <td>{{remark.name}}</td>
+          <td>{{remark.mark}}</td>
+          <td class="view-comment">
+            <button id="view-comment-button">View Comment</button>
           </td>
         </tr>
         {% endfor %}
@@ -42,34 +39,34 @@
       <thead>
         <th>name</th>
         <th>mark</th>
-        <th>date</th>
         <th></th>
       </thead>
       <tbody>
-        {% for grade in grades %}
+        {% for remark in remark_results %}
         <tr>
-          <td>{{grade.name}}</td>
-          <td>{{grade.mark}}</td>
-          <td>{{grad.date}}</td>
-          <td class="remark-request">
-            <button id="remark-button">Remark Request</button>
+          <td>{{remark.name}}</td>
+          <td>{{remark.mark}}</td>
+          <td class="view-comment">
+            <button id="view-comment-button">View Comment</button>
           </td>
         </tr>
         {% endfor %}
       </tbody>
     </table>
   </div>
-  <div id="remark-content" style="display: none">
-    <h3>Remark Request</h3>
-    <p>
-      Make sure you have read the sample solution posted before submitting the
-      remark request. If you have, please indicate the question number and
-      elaborate the error in the grading.
-    </p>
-    <form action="" method="">
-      <textarea class="input" rows="30" name="input-remark-content"></textarea>
-      <button type="submit" style="width: 5rem">Submit</button>
-    </form>
+  <div id="comment-content" style="display: none">
+    <div class="content-header">
+      <h3>Comment</h3>
+      <button>
+        <img
+          id="close-button"
+          src="../static/src/images/close.png"
+          alt="close-button"
+          style="width: 50%; justify-self: end; background-color: none"
+        />
+      </button>
+    </div>
+    <p>{{comment}}</p>
   </div>
 </main>
 {% endblock %}
