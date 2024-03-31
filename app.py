@@ -109,6 +109,12 @@ def signup():
         add_person_to_db(info)
     return render_template('signup.html', pagename=pagename)
 
+@app.route('/student_grades')
+@app.route('/student_grades.html')
+def student_grades():
+    pagename = 'grades'
+    return render_template('student_grades.html', pagename=pagename)
+
 def get_login_info():
     return Login.query.all()
 

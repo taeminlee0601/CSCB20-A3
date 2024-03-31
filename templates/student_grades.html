@@ -1,6 +1,8 @@
 {% extends 'user_template.html' %} {% block more_css %}
 <link rel="stylesheet" href="../static/css/student_grades.css" />
-{% endblock %}
+{% endblock %} {% block more_script %}
+<script src="../static/js/student_grades.js"></script>
+{% endblock %}{% block content %}
 <main>
   <h1>CSCB20</h1>
   <div class="assessment-list-box">
@@ -13,12 +15,22 @@
         <th></th>
       </thead>
       <tbody>
+        <tr>
+          <td>Dummy Assignment</td>
+          <td>100%</td>
+          <td>2024-03-30</td>
+          <td class="remark-request">
+            <button id="remark-button">Remark Request</button>
+          </td>
+        </tr>
         {% for grade in grades %}
         <tr>
           <td>{{grade.name}}</td>
           <td>{{grade.mark}}</td>
           <td>{{grad.date}}</td>
-          <td><button>Remark Request</button></td>
+          <td class="remark-request">
+            <button id="remark-button">Remark Request</button>
+          </td>
         </tr>
         {% endfor %}
       </tbody>
@@ -39,11 +51,25 @@
           <td>{{grade.name}}</td>
           <td>{{grade.mark}}</td>
           <td>{{grad.date}}</td>
-          <td><button>Remark Request</button></td>
+          <td class="remark-request">
+            <button id="remark-button">Remark Request</button>
+          </td>
         </tr>
         {% endfor %}
       </tbody>
     </table>
+  </div>
+  <div id="remark-content" style="display: none">
+    <h3>Remark Request</h3>
+    <p>
+      Make sure you have read the sample solution posted before submitting the
+      remark request. If you have, please indicate the question number and
+      elaborate the error in the grading.
+    </p>
+    <form action="" method="">
+      <textarea class="input" rows="30" name="input-remark-content"></textarea>
+      <button type="submit" style="width: 5rem">Submit</button>
+    </form>
   </div>
 </main>
 {% endblock %}
