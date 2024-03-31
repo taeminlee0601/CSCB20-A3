@@ -1,6 +1,8 @@
-{% extends 'user_template.html' %} {% block more_css %}
+{% extends 'user_template.html' %} 
+{% block more_css %}
 <link rel="stylesheet" href="../static/css/student_grades.css" />
 {% endblock %}
+{% block content %}
 <main>
   <h1>CSCB20</h1>
   <div class="assessment-list-box">
@@ -17,7 +19,7 @@
         <tr>
           <td>{{grade.name}}</td>
           <td>{{grade.mark}}</td>
-          <td>{{grad.date}}</td>
+          <td>{{grade.date}}</td>
           <td><button>Remark Request</button></td>
         </tr>
         {% endfor %}
