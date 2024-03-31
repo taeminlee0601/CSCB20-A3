@@ -1,7 +1,7 @@
 {% extends 'user_template.html' %} {% block more_css %}
 <link rel="stylesheet" href="../static/css/student_grades.css" />
 {% endblock %} {% block more_script %}
-<script src="../static/js/student_grades.js"></script>
+<script src="../static/js/student_remark.js"></script>
 {% endblock %}{% block content %}
 <main>
   <h1>CSCB20</h1>
@@ -11,7 +11,8 @@
       <thead>
         <th>name</th>
         <th>mark</th>
-        <th>date</th>
+        <th>submitted date</th>
+        <th>status</th>
         <th></th>
       </thead>
       <tbody>
@@ -19,8 +20,9 @@
           <td>Dummy Assignment</td>
           <td>100%</td>
           <td>2024-03-30</td>
+          <td>resolved</td>
           <td class="remark-request">
-            <button id="remark-button">Remark Request</button>
+            <button id="view-comment-button">View Comment</button>
           </td>
         </tr>
         {% for grade in grades %}
