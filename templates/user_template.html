@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/user_template.css" />
+    {% block more_css %} {% endblock %}
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/'" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    {% if pagename %}
+    <title>{{pagename}}</title>
+    {% else %}
+    <title>CSCB20</title>
+    {% endif %}
+  </head>
+  <body>
+    <nav class="sidebar">
+      <div class="sidebar-content">
+        <img src="../static/src/images/utsc-logo.svg" alt="utsc-logo" />
+        <a href="index.html"
+          ><h1>CSCB20</h1>
+          <h5>Web App and Database</h5>
+        </a>
+        <div class="menu">
+          <h2>MENU</h2>
+          <ul>
+            <a href="student_grades.html"><li>My Grades</li></a>
+            <a href="student_remark.html"><li>My Remark Requests</li></a>
+          </ul>
+        </div>
+      </div>
+      <a class="log-out" herf="#">
+        <img src="../static/src/images/logout.png" alt="log-out-icon" />
+        Log Out
+      </a>
+    </nav>
+    {% block content %} {% endblock %}
+  </body>
+</html>
