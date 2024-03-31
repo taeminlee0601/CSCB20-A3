@@ -32,25 +32,19 @@ def signup():
     if request.method == 'POST':
         login_info = Login(username = request.form['input-username'],
                            password = request.form['input-password'],
-                           user_type = request.form['user-type'])
-        user_info = None
-        if login_info.user_type == 'instructor':
-            user_info = Instructor(utorid = request.form['input-utorid'],
-                                   name = request.form['input-full-name'])
-        else:
-            user_info = Student(utorid = request.form['input-utorid'],
-                                   name = request.form['input-full-name'])
-        add_person_to_db(login_info, user_info)
+                           user_type = request.form['user-type'],
+                           utorid = request.form['input-utorid'],
+                           name = request.form['input-full-name'])
+        add_person_to_db(login_info)
     return render_template('signup.html', pagename=pagename)
 
-def add_person_to_db(login_info, student_info):
+def add_person_to_db(login_info):
     if check_user_exist(login_info.username):
         flash('This username is already exist!')
         return
     # hash password before login
     login_info.password = bcrypt.generate_password_hash(login_info.password).decode('utf-8')
     db.session.add(login_info)
-    db.session.add(student_info)
     db.session.commit()
     flash('Register user sucessfully!')
 
