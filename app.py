@@ -3,6 +3,8 @@ from datetime import timedelta
 from modules.models import db
 from modules.auth import auth, bcrypt
 from modules.feedback import fb
+from modules.student_side.student import student
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'b913f47618cb5c3d870b48d7'
@@ -15,6 +17,7 @@ with app.app_context():
 bcrypt.init_app(app)
 app.register_blueprint(auth)
 app.register_blueprint(fb)
+app.register_blueprint(student)
 
 @app.route('/home')
 @app.route('/index.html')
