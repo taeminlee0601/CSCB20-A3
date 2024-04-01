@@ -1,7 +1,7 @@
 {% extends 'user_template.html' %} {% block more_css %}
 <link rel="stylesheet" href="../static/css/student_grades.css" />
 {% endblock %} {% block more_script %}
-<script src="../static/js/student_grades.js"></script>
+<script src="../static/js/student_grades.js" defer></script>
 {% endblock %}{% block content %}
 <main>
   <h1>CSCB20</h1>
@@ -20,16 +20,17 @@
           <td>100%</td>
           <td>2024-03-30</td>
           <td class="remark-request">
-            <button id="remark-button">Remark Request</button>
+            <button class="remark-button">Remark Request</button>
           </td>
         </tr>
         {% for grade in assignment_grades %}
         <tr>
-          <td>{{grade[0]}}</td>
+          <td style="display: none;" class="grade-id">{{grade[0]}}</td>
           <td>{{grade[1]}}</td>
           <td>{{grade[2]}}</td>
+          <td>{{grade[3]}}</td>
           <td class="remark-request">
-            <button id="remark-button">Remark Request</button>
+            <button class="remark-button">Remark Request</button>
           </td>
         </tr>
         {% endfor %}
@@ -48,11 +49,12 @@
       <tbody>
         {% for grade in exam_grades %}
         <tr>
-          <td>{{grade[0]}}</td>
+          <td style="display: none;" class="grade-id">{{grade[0]}}</td>
           <td>{{grade[1]}}</td>
           <td>{{grade[2]}}</td>
+          <td>{{grade[3]}}</td>
           <td class="remark-request">
-            <button id="remark-button">Remark Request</button>
+            <button class="remark-button">Remark Request</button>
           </td>
         </tr>
         {% endfor %}
@@ -76,7 +78,7 @@
       remark request. If you have, please indicate the question number and
       elaborate the error in the grading.
     </p>
-    <form action="http://127.0.0.1:5000/remark_request" method="POST">
+    <form id="regrade-request-form">
       <textarea class="input" rows="30" name="input-remark-content"></textarea>
       <button id='submit-regrade-request-btn' type="submit" style="width: 5rem">Submit</button>
     </form>

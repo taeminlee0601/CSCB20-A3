@@ -26,7 +26,7 @@ class Assignment(db.Model):
 class Assignment_Grade(db.Model):
     __tablename__ = 'Assignment_Grade'
     sid = db.Column(db.String(20), primary_key = True)
-    aid = db.Column(db.Integer, db.ForeignKey('Assignment.aid'), nullable = False)
+    aid = db.Column(db.Integer, db.ForeignKey('Assignment.aid'), primary_key = True, nullable = False)
     grade = db.Column(db.Float, nullable = False)
 
 class Exam(db.Model):
@@ -40,7 +40,7 @@ class Exam(db.Model):
 class Exam_Grade(db.Model):
     __tablename__ = 'Exam_Grade'
     sid = db.Column(db.String(20), primary_key = True)  
-    eid = db.Column(db.Integer, db.ForeignKey('Exam.eid'))
+    eid = db.Column(db.Integer, db.ForeignKey('Exam.eid'), primary_key = True)
     grade = db.Column(db.Float)
 
 class Assignment_Regrade_Request(db.Model):
@@ -49,6 +49,7 @@ class Assignment_Regrade_Request(db.Model):
     sid = db.Column(db.String(20)) 
     aid = db.Column(db.Integer)
     description = db.Column(db.String(2000))
+    comment = db.Column(db.String(2000))
 
 class Exam_Regrade_Request(db.Model):
     __tablename__ = 'Exam_Regrade_Request'
@@ -56,6 +57,7 @@ class Exam_Regrade_Request(db.Model):
     sid = db.Column(db.String(20)) 
     eid = db.Column(db.Integer)
     description = db.Column(db.String(2000))
+    comment = db.Column(db.String(2000))
 
 class Login(db.Model):
     __tablename__ = 'Login'
