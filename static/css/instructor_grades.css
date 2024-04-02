@@ -96,3 +96,6 @@ input:focus {
     padding: 0;
 }
 
+.close-button:hover {
+    background-color: inherit;
+}
