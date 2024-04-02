@@ -100,5 +100,12 @@ def tutorials():
     pagename = 'Tutorials'
     return render_template('tutorials.html', pagename=pagename)
 
+
+# temporary route
+
+@app.route('/manage_grades')
+def manage_grades():
+    return render_template('instructor_grades.html')
+
 if __name__=="__main__":
     app.run(debug=True)

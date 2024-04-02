@@ -2,7 +2,10 @@
 <link rel="stylesheet" href="../static/css/student_grades.css" />
 {% endblock %} {% block more_script %}
 <script src="../static/js/student_grades.js" defer></script>
-{% endblock %}{% block content %}
+{% endblock %} {% block custom_menu %}
+<a href="student_grades.html"><li>My Grades</li></a>
+<a href="student_remark.html"><li>My Remark Requests</li></a>
+{% endblock%} {% block content %}
 <main>
   <h1>CSCB20</h1>
   <div class="assessment-list-box">
