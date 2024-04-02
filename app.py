@@ -1,9 +1,10 @@
-from flask import Flask, render_template, redirect, url_for, session
+from flask import Flask, render_template, redirect, url_for, session, request
 from datetime import timedelta
 from modules.models import db
 from modules.auth import auth, bcrypt
 from modules.feedback import fb
 from modules.student_side.student import student
+from modules.instructor_side.instructor import ins
 
 
 app = Flask(__name__)
@@ -18,6 +19,7 @@ bcrypt.init_app(app)
 app.register_blueprint(auth)
 app.register_blueprint(fb)
 app.register_blueprint(student)
+app.register_blueprint(ins)
 
 @app.route('/home')
 @app.route('/index.html')
@@ -100,12 +102,11 @@ def tutorials():
     pagename = 'Tutorials'
     return render_template('tutorials.html', pagename=pagename)
 
-
-# temporary route
-
-@app.route('/manage_grades')
-def manage_grades():
-    return render_template('instructor_grades.html')
+@app.route('/logout', methods=['POST'])
+def log_out():
+    if request.method == 'POST':
+        session.pop()
+        return redirect(url_for('signin'))
 
 if __name__=="__main__":
     app.run(debug=True)
