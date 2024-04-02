@@ -25,10 +25,10 @@ function showDropdown(dropdownContent) {
     }
 }
 
-
+data = {}
 document.getElementById('logout').addEventListener('click', function() {
     data['desc'] = 'logoutpls';
-    fetch('/remark_request', {
+    fetch('/logout', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -38,6 +38,7 @@ document.getElementById('logout').addEventListener('click', function() {
         if (response.ok) {
             // TODO: disable the button after send remark req 
             console.log('Data submitted successfully');
+            window.location.href = '/';
         } else {
             console.error('Failed to submit data');
         }
@@ -48,7 +49,7 @@ document.getElementById('logout').addEventListener('click', function() {
 
 document.getElementById('logout-mobile').addEventListener('click', function() {
     data['desc'] = 'logoutpls';
-    fetch('/remark_request', {
+    fetch('/logout', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -57,7 +58,8 @@ document.getElementById('logout-mobile').addEventListener('click', function() {
     }).then(response => {
         if (response.ok) {
             // TODO: disable the button after send remark req 
-            console.log('Data submitted successfully');
+            console.log('Data submitted successful');
+            window.location.href = '/';
         } else {
             console.error('Failed to submit data');
         }
