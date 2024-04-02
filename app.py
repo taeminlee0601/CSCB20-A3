@@ -1,9 +1,10 @@
-from flask import Flask, render_template, redirect, url_for, session
+from flask import Flask, render_template, redirect, url_for, session, request
 from datetime import timedelta
 from modules.models import db
 from modules.auth import auth, bcrypt
 from modules.feedback import fb
 from modules.student_side.student import student
+from modules.instructor_side.instructor import ins
 
 
 app = Flask(__name__)
@@ -18,6 +19,7 @@ bcrypt.init_app(app)
 app.register_blueprint(auth)
 app.register_blueprint(fb)
 app.register_blueprint(student)
+app.register_blueprint(ins)
 
 @app.route('/home')
 @app.route('/index.html')
@@ -31,7 +33,7 @@ def home():
 @app.route('/assignment')
 def assignment():
     if 'username' not in session.keys():
-        return redirect(url_for('signin'))
+        return redirect(url_for('auth.signin'))
     
     pagename = 'Assignment'
     return render_template('assignment.html', pagename=pagename)
@@ -40,7 +42,7 @@ def assignment():
 @app.route('/calendar.html')
 def calendar():
     if 'username' not in session.keys():
-        return redirect(url_for('signin'))
+        return redirect(url_for('auth.signin'))
     pagename = 'Calendar'
     return render_template('calendar.html', pagename=pagename)
 
@@ -48,7 +50,7 @@ def calendar():
 @app.route('/course_description.html')
 def course_description():
     if 'username' not in session.keys():
-        return redirect(url_for('signin'))
+        return redirect(url_for('auth.signin'))
     pagename = 'Course Description'
     return render_template('course_description.html', pagename=pagename)
 
@@ -56,7 +58,7 @@ def course_description():
 @app.route('/course_team.html')
 def course_team():
     if 'username' not in session.keys():
-        return redirect(url_for('signin'))
+        return redirect(url_for('auth.signin'))
     pagename = 'Course Team'
     return render_template('course_team.html', pagename=pagename)
 
@@ -64,7 +66,7 @@ def course_team():
 @app.route('/lectures.html')
 def lectures():
     if 'username' not in session.keys():
-        return redirect(url_for('signin'))
+        return redirect(url_for('auth.signin'))
     pagename = 'Lectures'
     return render_template('lectures.html', pagename=pagename)
 
@@ -72,7 +74,7 @@ def lectures():
 @app.route('/resources.html')
 def resources():
     if 'username' not in session.keys():
-        return redirect(url_for('signin'))
+        return redirect(url_for('auth.signin'))
     pagename = 'Resources'
     return render_template('resources.html', pagename=pagename)
 
@@ -80,7 +82,7 @@ def resources():
 @app.route('/syllabus.html')
 def syllabus():
     if 'username' not in session.keys():
-        return redirect(url_for('signin'))
+        return redirect(url_for('auth.signin'))
     pagename = 'Syllabus'
     return render_template('syllabus.html', pagename=pagename)
 
@@ -88,7 +90,7 @@ def syllabus():
 @app.route('/tests.html')
 def tests():
     if 'username' not in session.keys():
-        return redirect(url_for('signin'))
+        return redirect(url_for('auth.signin'))
     pagename = 'Tests'
     return render_template('tests.html', pagename=pagename)
 
@@ -96,16 +98,15 @@ def tests():
 @app.route('/tutorials.html')
 def tutorials():
     if 'username' not in session.keys():
-        return redirect(url_for('signin'))
+        return redirect(url_for('auth.signin'))
     pagename = 'Tutorials'
     return render_template('tutorials.html', pagename=pagename)
 
-
-# temporary route
-
-@app.route('/manage_grades')
-def manage_grades():
-    return render_template('instructor_grades.html')
+@app.route('/logout', methods=['GET', 'POST'])
+def log_out():
+    # return render_template('lectures.html', pagename='Sign in')
+    session.clear()
+    return redirect(url_for('auth.signin'))
 
 if __name__=="__main__":
     app.run(debug=True)
