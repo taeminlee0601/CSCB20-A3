@@ -131,7 +131,7 @@ a:hover {
   top: 0;
   width: 100%;
   display: grid;
-  grid-template-columns: 17% 0% 83% 0% /* 3 columns with equal width */
+  grid-template-columns: 17% 73% 10%/* 3 columns with equal width */
 }
 
 .tab-grid {
@@ -151,7 +151,7 @@ a:hover {
 }
 
 .navbar-filler {
-  display: block;
+  display: none;
   background-color: rgb(137, 171, 255);
 }
 
@@ -167,6 +167,10 @@ a:hover {
 }
 
 .tab:hover {
+  background-color: rgb(104, 129, 251);
+}
+
+.tab-profile:hover {
   background-color: rgb(104, 129, 251);
 }
 
@@ -226,6 +230,43 @@ a:hover {
   background-color: rgb(161, 161, 161);
 }
 
+.profile-container {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-tab {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(137, 171, 255);
+}
+
+.profile-icon-container {
+  display: inline-block;
+  width: 46.8px;
+  height: 46.8px;
+  max-height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile-icon-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.profile-container:hover .dropdown-content {
+  display: block;
+}
+
+.tab-profile {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .navbar {
     position: fixed;
@@ -250,6 +291,11 @@ a:hover {
     display: none;
   }
 
+  .profile-tab {
+    justify-items: right;
+    margin-right: 20px;
+  }
+
   .menu-button {
     display: inline-block;
     padding-right: 15px
@@ -270,6 +316,17 @@ a:hover {
 
   .tab-grid {
     display: none;
+  }
+
+  .tab-profile {
+    display: block;
+    background-color: rgb(115, 153, 250);
+    color: white;
+    font-family: 'Merriweather Sans';
+    font-size: large;
+    text-align: center;
+    padding: 20px;
+    text-decoration: none;
   }
 
   .menuButtonOnClick .menu-bar1 {

@@ -1,25 +1,13 @@
-var numClicked = 0;
-
 function menuBarClicked(menuButton, tabGrid) {
-    numClicked++;
     menuButton.classList.toggle("menuButtonOnClick");
     tabGrid.classList.toggle("tabGridAppear");
 
     var dropdownContents = document.getElementsByClassName("dropdown-content-mobile");
 
-    if (numClicked % 2 == 0) {
-        for (var i = 0; i < dropdownContents.length; i++) {
-            var current = dropdownContents[i]
-            if (current.classList.contains("showDropdown")) {
-                current.classList.remove("showDropdown");
-            }
-        }
-    } else {
-        for (var i = 0; i < dropdownContents.length; i++) {
-            var current = dropdownContents[i]
-            if (current.classList.contains("closeDropdown")) {
-                current.classList.remove("closeDropdown");
-            }
+    for (var i = 0; i < dropdownContents.length; i++) {
+        var current = dropdownContents[i]
+        if (current.classList.contains("closeDropdown")) {
+            current.classList.remove("closeDropdown");
         }
     }
 }
@@ -36,3 +24,44 @@ function showDropdown(dropdownContent) {
         }
     }
 }
+
+
+document.getElementById('logout').addEventListener('click', function() {
+    data['desc'] = 'logoutpls';
+    fetch('/remark_request', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }).then(response => {
+        if (response.ok) {
+            // TODO: disable the button after send remark req 
+            console.log('Data submitted successfully');
+        } else {
+            console.error('Failed to submit data');
+        }
+    }).catch(error => {
+        console.log('Error: ', error);
+    })
+});
+
+document.getElementById('logout-mobile').addEventListener('click', function() {
+    data['desc'] = 'logoutpls';
+    fetch('/remark_request', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }).then(response => {
+        if (response.ok) {
+            // TODO: disable the button after send remark req 
+            console.log('Data submitted successfully');
+        } else {
+            console.error('Failed to submit data');
+        }
+    }).catch(error => {
+        console.log('Error: ', error);
+    })
+});
