@@ -1,7 +1,7 @@
 {% extends 'user_template.html' %} {% block more_css %}
 <link rel="stylesheet" href="../static/css/student_remark.css" />
 {% endblock %} {% block more_script %}
-<script src="../static/js/student_remark.js"></script>
+<script src="../static/js/student_remark.js" defer></script>
 {% endblock %}{% block content %}
 <main>
   <h1>CSCB20</h1>
@@ -14,19 +14,13 @@
         <th></th>
       </thead>
       <tbody>
+        {% for remark in assignment_remark_results %}
         <tr>
-          <td>Dummy Assignment</td>
-          <td>100%</td>
+          <td>{{remark['name']}}</td>
+          <td>{{remark['mark']}}</td>
+          <td style="display: none;" class="comment">{{remark['comment']}}</td>
           <td class="view-comment">
-            <button id="view-comment-button">View Comment</button>
-          </td>
-        </tr>
-        {% for remark in remark_results %}
-        <tr>
-          <td>{{remark.name}}</td>
-          <td>{{remark.mark}}</td>
-          <td class="view-comment">
-            <button id="view-comment-button">View Comment</button>
+            <button class="view-comment-button">View Comment</button>
           </td>
         </tr>
         {% endfor %}
@@ -42,12 +36,13 @@
         <th></th>
       </thead>
       <tbody>
-        {% for remark in remark_results %}
+        {% for remark in exam_remark_results %}
         <tr>
-          <td>{{remark.name}}</td>
-          <td>{{remark.mark}}</td>
+          <td>{{remark['name']}}</td>
+          <td>{{remark['mark']}}</td>
+          <td style="display: none;" class="comment">{{remark['comment']}}</td>
           <td class="view-comment">
-            <button id="view-comment-button">View Comment</button>
+            <button class="view-comment-button">View Comment</button>
           </td>
         </tr>
         {% endfor %}
@@ -66,7 +61,7 @@
         />
       </button>
     </div>
-    <p>{{comment}}</p>
+    <p></p>
   </div>
 </main>
 {% endblock %}
