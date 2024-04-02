@@ -1,0 +1,119 @@
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    row-gap: 1%;
+}
+
+table {
+    width: 100%;
+}
+
+tr {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    margin-top: 0.1rem;
+    margin-bottom: 0.1rem;
+}
+
+thead {
+    border-style: solid;
+    border-top: 5px black;
+}
+
+th {
+    height: 80%;
+    text-align: left;
+    border-top: 2px solid rgb(200, 200, 200);
+    border-bottom: 2px solid rgb(200, 200, 200);
+}
+
+td {
+    font-size: 0.85em;
+}
+
+.remark-request {
+    justify-self: end;
+}
+
+.remark-button, #submit-regrade-request-btn {
+    border: 0;
+    border-radius: 0.5rem;
+    height: 2rem;
+    font-family: 'Merriweather Sans';
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgb(200, 200, 200);
+}
+
+#remark-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 32vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(14, 48, 98);
+    border-radius: 0.5rem;
+    box-shadow: 0 0 5px rgb(90, 90, 90);
+    color: white;
+    padding: 1vw;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+    align-items: flex-end;
+}
+
+textarea {
+    font-family:"Merriweather Sans";
+    width: 30vw;
+    height: 15vw;
+    resize: none;
+    border-style: hidden;
+    border-radius: 0.5rem;
+    background-color: white;
+}
+
+p {
+    font-size: 0.85em;
+    text-align: center;
+    width: 90%
+}
+
+h3 {
+    margin: 0;
+}
+
+.content-header {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 90% 10%;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.close-button {
+    display: flex;
+    justify-content: flex-end;
+    border: none;
+    appearance: none;
+    background-color: inherit;
+    width: auto;   
+    padding: 0;
+}
+
+.close-button:hover {
+    background-color: inherit;
+}
+

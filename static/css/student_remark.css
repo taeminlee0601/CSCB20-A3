@@ -1,0 +1,46 @@
+@import url(student_grades.css);
+tr {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.view-comment {
+    justify-self: end;
+}
+
+.view-comment-button {
+    border: 0;
+    border-radius: 0.5rem;
+    height: 2rem;
+    font-family: 'Merriweather Sans';
+}
+
+#comment-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 32vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(14, 48, 98);
+    border-radius: 0.5rem;
+    box-shadow: 0 0 5px rgb(90, 90, 90);
+    color: white;
+    padding: 1vw;
+}
+
+p {
+    font-size: 0.85em;
+    width: 30vw;
+    height: 15vw;
+    border-style: hidden;
+    border-radius: 0.5rem;
+    background-color: white;
+    color: black;
+    padding: 0.5rem;
+    margin: auto;
+    margin-top: 0.5rem;
+}
