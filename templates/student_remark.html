@@ -1,0 +1,70 @@
+{% extends 'user_template.html' %} {% block more_css %}
+<link rel="stylesheet" href="../static/css/student_remark.css" />
+{% endblock %} {% block more_script %}
+<script src="../static/js/student_remark.js" defer></script>
+{% endblock %} {% block custom_menu %}
+<a href="student_grades.html"><li>My Grades</li></a>
+<a href="student_remark.html"><li>My Remark Requests</li></a>
+{% endblock%}{% block content %}
+<main>
+  <h1>CSCB20</h1>
+  <div class="assessment-list-box">
+    <h2>Assignment</h2>
+    <table>
+      <thead>
+        <th>name</th>
+        <th>mark</th>
+        <th></th>
+      </thead>
+      <tbody>
+        {% for remark in assignment_remark_results %}
+        <tr>
+          <td>{{remark['name']}}</td>
+          <td>{{remark['mark']}}</td>
+          <td style="display: none" class="comment">{{remark['comment']}}</td>
+          <td class="view-comment">
+            <button class="view-comment-button">View Comment</button>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="assessment-list-box">
+    <h2>Exam</h2>
+    <table>
+      <thead>
+        <th>name</th>
+        <th>mark</th>
+        <th></th>
+      </thead>
+      <tbody>
+        {% for remark in exam_remark_results %}
+        <tr>
+          <td>{{remark['name']}}</td>
+          <td>{{remark['mark']}}</td>
+          <td style="display: none" class="comment">{{remark['comment']}}</td>
+          <td class="view-comment">
+            <button class="view-comment-button">View Comment</button>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div id="comment-content" style="display: none">
+    <div class="content-header">
+      <h3>Comment</h3>
+      <button class="close-button">
+        <img
+          id="close-button"
+          src="../static/src/images/close.png"
+          alt="close-button"
+          style="width: 50%; justify-self: end; background-color: none"
+        />
+      </button>
+    </div>
+    <p></p>
+  </div>
+</main>
+{% endblock %}

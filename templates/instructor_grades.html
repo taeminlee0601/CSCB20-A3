@@ -1,0 +1,114 @@
+{% extends 'user_template.html' %} {% block more_css %}
+<link rel="stylesheet" href="../static/css/instructor_grades.css" />
+{% endblock %} {% block more_script %}
+<script src="../static/js/instructor_grades.js" defer></script>
+{% endblock %} {% block custom_menu %}
+<a href="instructor_grades.html"><li>Manage Grades</li></a>
+<a href="instructor_remarks.html"><li>View Remark Requests</li></a>
+<a href="instructor_feedbacks.html"><li>View Feedbacks</li></a>
+{% endblock%} {% block content %}
+<main>
+  <h1>CSCB20</h1>
+  <div class="assessment-list-box">
+    <h2>Assignment</h2>
+    <table>
+      <thead>
+        <th>student</th>
+        <th>name</th>
+        <th>mark</th>
+        <th>date</th>
+        <th>edit</th>
+        <th>delete</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Dummy Student</td>
+          <td>Dummy Assignment</td>
+          <td>100%</td>
+          <td>2024-03-30</td>
+          <td class="edit">
+            <button class="edit-btn">Edit</button>
+          </td>
+          <td class="delete">
+            <button class="delete-btn">Delete</button>
+          </td>
+        </tr>
+        {% for grade in assignment_grades %}
+        <tr>
+          <td style="display: none" class="grade-id">{{grade[0]}}</td>
+          <td>{{grade[1]}}</td>
+          <td>{{grade[2]}}</td>
+          <td>{{grade[3]}}</td>
+          <td class="edit">
+            <button class="edit-btn">Edit</button>
+          </td>
+          <form class="delete-grade-form">
+            <td class="delete">
+              <button class="delete-btn">Delete</button>
+            </td>
+          </form>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="assessment-list-box">
+    <h2>Exam</h2>
+    <table>
+      <thead>
+        <th>student</th>
+        <th>name</th>
+        <th>mark</th>
+        <th>date</th>
+        <th>edit</th>
+        <th>delete</th>
+      </thead>
+      <tbody>
+        {% for grade in exam_grades %}
+        <tr>
+          <td style="display: none" class="grade-id">{{grade[0]}}</td>
+          <td>{{grade[1]}}</td>
+          <td>{{grade[2]}}</td>
+          <td>{{grade[3]}}</td>
+          <td class="edit">
+            <button class="edit-btn">Edit</button>
+          </td>
+          <form class="delete-grade-form">
+            <td class="delete">
+              <button class="delete-btn">Delete</button>
+            </td>
+          </form>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <button class="add-btn">+ add grades</button>
+  <div class="add-grade-box" style="display: none">
+    <form class="add-grade-form" action="http://127.0.0.1:5000/manage_grades">
+      <div class="content-header">
+        <h2>Add Grades</h2>
+        <button class="close-button">
+          <img
+            id="close-button"
+            src="../static/src/images/close.png"
+            alt="close-button"
+            style="width: 50%; background-color: none"
+          />
+        </button>
+      </div>
+      <div class="input-box">
+        <input name="input-student-name" placeholder="student name" />
+        <input name="input-assessment-name" placeholder="assessment name" />
+        <input name="input-mark" placeholder="mark" />
+        <input name="input-date" placeholder="evaluation date" />
+      </div>
+      <div class="button-box">
+        <button class="form-add-btn" type="submit" style="width: 5rem">
+          Add
+        </button>
+      </div>
+    </form>
+  </div>
+</main>
+{% endblock %}
