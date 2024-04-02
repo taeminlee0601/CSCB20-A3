@@ -37,7 +37,7 @@ td {
     justify-self: end;
 }
 
-button {
+.remark-button, #submit-regrade-request-btn {
     border: 0;
     border-radius: 0.5rem;
     height: 2rem;
@@ -96,15 +96,20 @@ h3 {
 
 .content-header {
     display: grid;
-    width: 90%;
+    width: 100%;
     grid-template-columns: 90% 10%;
     justify-content: center;
     align-items: center;
+    margin: auto;
 }
 
-.content-header button {
+.close-button {
+    display: flex;
+    justify-content: flex-end;
     border: none;
     appearance: none;
     background-color: inherit;
     width: auto;   
+    padding: 0;
 }
+

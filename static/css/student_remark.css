@@ -1,52 +1,17 @@
-main {
-    display: flex;
-    flex-direction: column;
-    padding: 2%;
-    row-gap: 1%;
-}
-
-table {
-    width: 100%;
-}
-
+@import url(student_grades.css);
 tr {
-    display: grid;
     grid-template-columns: repeat(3, 1fr);
-    align-items: center;
-    margin-top: 0.1rem;
-    margin-bottom: 0.1rem;
-}
-
-thead {
-    border-style: solid;
-    border-top: 5px black;
-}
-
-th {
-    height: 80%;
-    text-align: left;
-    border-top: 2px solid rgb(200, 200, 200);
-    border-bottom: 2px solid rgb(200, 200, 200);
-}
-
-td {
-    font-size: 0.85em;
 }
 
 .view-comment {
     justify-self: end;
 }
 
-button {
+.view-comment-button {
     border: 0;
     border-radius: 0.5rem;
     height: 2rem;
     font-family: 'Merriweather Sans';
-}
-
-button:hover {
-    cursor: pointer;
-    background-color: rgb(200, 200, 200);
 }
 
 #comment-content {
@@ -76,23 +41,6 @@ p {
     background-color: white;
     color: black;
     padding: 0.5rem;
-}
-
-h3 {
-    margin: 0;
-}
-
-.content-header {
-    display: grid;
-    width: 90%;
-    grid-template-columns: 90% 10%;
-    justify-content: center;
-    align-items: center;
-}
-
-.content-header button {
-    border: none;
-    appearance: none;
-    background-color: inherit;
-    width: auto;   
+    margin: auto;
+    margin-top: 0.5rem;
 }
