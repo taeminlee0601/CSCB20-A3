@@ -25,10 +25,10 @@ function showDropdown(dropdownContent) {
     }
 }
 
-
+data = {}
 document.getElementById('logout').addEventListener('click', function() {
     data['desc'] = 'logoutpls';
-    fetch('/remark_request', {
+    fetch('/logout', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
