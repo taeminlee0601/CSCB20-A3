@@ -2,7 +2,10 @@
 <link rel="stylesheet" href="../static/css/student_grades.css" />
 {% endblock %} {% block more_script %}
 <script src="../static/js/student_grades.js" defer></script>
-{% endblock %}{% block content %}
+{% endblock %} {% block custom_menu %}
+<a href="student_grades.html"><li>My Grades</li></a>
+<a href="student_remark.html"><li>My Remark Requests</li></a>
+{% endblock%} {% block content %}
 <main>
   <h1>CSCB20</h1>
   <div class="assessment-list-box">
@@ -25,7 +28,7 @@
         </tr>
         {% for grade in assignment_grades %}
         <tr>
-          <td style="display: none;" class="grade-id">{{grade[0]}}</td>
+          <td style="display: none" class="grade-id">{{grade[0]}}</td>
           <td>{{grade[1]}}</td>
           <td>{{grade[2]}}</td>
           <td>{{grade[3]}}</td>
@@ -49,7 +52,7 @@
       <tbody>
         {% for grade in exam_grades %}
         <tr>
-          <td style="display: none;" class="grade-id">{{grade[0]}}</td>
+          <td style="display: none" class="grade-id">{{grade[0]}}</td>
           <td>{{grade[1]}}</td>
           <td>{{grade[2]}}</td>
           <td>{{grade[3]}}</td>
@@ -64,12 +67,12 @@
   <div id="remark-content" style="display: none">
     <div class="content-header">
       <h3>Remark Request</h3>
-      <button>
+      <button class="close-button">
         <img
           id="close-button"
           src="../static/src/images/close.png"
           alt="close-button"
-          style="width: 50%; justify-self: end; background-color: none"
+          style="width: 50%; background-color: none"
         />
       </button>
     </div>
@@ -80,7 +83,9 @@
     </p>
     <form id="regrade-request-form">
       <textarea class="input" rows="30" name="input-remark-content"></textarea>
-      <button id='submit-regrade-request-btn' type="submit" style="width: 5rem">Submit</button>
+      <button id="submit-regrade-request-btn" type="submit" style="width: 5rem">
+        Submit
+      </button>
     </form>
   </div>
 </main>
