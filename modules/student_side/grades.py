@@ -22,6 +22,5 @@ def get_exam_grades():
     cur_id = get_utorid_by_username(session['username'])
     sql = 'SELECT Exam.eid, Exam.name, Exam_Grade.grade, Exam.date FROM Exam JOIN Exam_Grade\
         ON Exam_Grade.eid = Exam.eid AND Exam_Grade.sid = "' + str(cur_id) + '"';
-    # TODO: Ask why we have to connect
     with db.engine.connect() as conn:
         return conn.execute(text(sql)).all()

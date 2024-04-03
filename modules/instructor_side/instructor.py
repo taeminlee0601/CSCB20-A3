@@ -2,6 +2,7 @@ from modules.models import *
 from flask import Blueprint, session, render_template, redirect, url_for, request
 from modules.feedback import get_feedback
 from modules.models import *
+from modules.student_side.assessment_info import *
 
 ins = Blueprint('instructor', __name__)
 
@@ -17,7 +18,25 @@ def display_feedback():
     '''
     if 'username' not in session.keys():
         return redirect(url_for('auth.signin'))
-    return render_template('feedback.html', feedback_all = get_feedback())
+    if session['user-type'] != 'instructor':
+        return redirect(url_for('home'))
+    feedback_all = get_feedback()
+    rsp_q1 = []
+    rsp_q2 = []
+    rsp_q3 = []
+    rsp_q4 = []
+    for item in feedback_all:
+        if item.like_about_instructor != '':
+            rsp_q1.append(item.like_about_instructor)
+        if item.improve_instructor != '':
+            rsp_q2.append(item.improve_instructor)
+        if item.like_about_lab != '':
+            rsp_q3.append(item.like_about_lab)
+        if item.improve_lab != '':
+            rsp_q4.append(item.improve_lab)
+    # print(rsp_q1, rsp_q2, rsp_q3, rsp_q4)
+    return render_template('feedback.html', rsp_q1 = rsp_q1, rsp_q2 = rsp_q2, \
+                           rsp_q3 = rsp_q3, rsp_q4 = rsp_q4)
 
 # def edit_student_grade():
 #     pass
@@ -39,4 +58,18 @@ def display_feedback():
 @ins.route('/manage_grades')
 @ins.route('/instructor_grades.html')
 def manage_grades():
-    return render_template('instructor_grades.html')
+    if session['user-type'] != 'instructor':
+        return redirect(url_for('home'))
+    return render_template('instructor_grades.html', ass_info = get_all_assignment_info()\
+                           , exam_info = get_all_exam_info())
+
+@ins.route('/edit_grades', methods = ['GET', 'POST'])
+@ins.route('/edit_student_grades.html', methods = ['GET', 'POST'])
+def edit_student_grades():
+    if request.method == 'POST':
+        assessment_type = request.json
+        # TODO: change assessment_type['attributes']
+        if assessment_type['type'] == 'exam':
+            pass
+        elif assessment_type['type'] == 'assignment':
+            pass
