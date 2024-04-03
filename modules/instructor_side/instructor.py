@@ -70,7 +70,9 @@ def edit_student_grades():
     # to load the page properly and pass stu_grade_info
     if request.method == 'POST':
         # update mark into database
-        pass
+        new_grade_info = request.json
+        print(new_grade_info) # Added to check if data is passed correctly
+        return redirect(url_for('instructor.edit_student_grades'))
     return render_template('edit_student_grades.html', stu_grade_info = stu_grade_info)
 
 @ins.route('/manage_remark_request', methods = ['GET', 'POST'])

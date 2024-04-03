@@ -3,24 +3,24 @@
 {% endblock %} {% block more_script %}
 <script src="../static/js/edit_student_grades.js" defer></script>
 {% endblock %} {% block custom_menu %}
-<a href="instructor_grades.html"><li>Manage Grades</li></a>
+<a href="manage_grades"><li>Manage Grades</li></a>
 <a href="instructor_remarks.html"><li>View Remark Requests</li></a>
 <a href="instructor_feedbacks.html"><li>View Feedbacks</li></a>
 {% endblock%} {% block content %}
 <main>
   <h1>CSCB20</h1>
   <div class="assessment-list-box">
-    <h2>{{aname}} - students</h2>
+    <h2>{{assessment_name}} - students</h2>
     <table>
       <thead>
+        <th>assignment id</th>
         <th>UTORid</th>
-        <th>name</th>
         <th>grades</th>
       </thead>
       <tbody>
         <tr>
-          <td>Dummy1234</td>
-          <td>Dummy</td>
+          <td class="aid">a1</td>
+          <td class="sid">Dummy1234</td>
           <td class="edit-grade-box">
             <span class="stu-grade">0</span>
             <span>/ 100</span>
@@ -28,8 +28,8 @@
         </tr>
         {% for info in stu_grade_info %}
         <tr>
-          <td class="stu-id">{{info[0]}}</td>
-          <td>{{info[1]}}</td>
+          <td class="aid">{{info[1]}}</td>
+          <td class="sid">{{info[0]}}</td>
           <td class="edit-grade-box">
             <span class="stu-grade">{{info[2]}}</span>
             <span>/ 100</span>
