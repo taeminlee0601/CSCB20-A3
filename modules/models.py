@@ -87,6 +87,12 @@ def get_assignment_id_by_name(assignment_name):
     '''
     return Assignment.query.filter(Assignment.name == assignment_name).first().aid
 
+def get_assignment_name_by_id(assignment_id):
+    '''
+    Return assignment name based on assignment id of the 'assignment_id'
+    '''
+    return Assignment.query.filter(Assignment.aid == assignment_id).first().name
+
 def get_usertype_by_username(username):
     '''
     Return the user_type (either 'instructor' or 'student' by the username)
