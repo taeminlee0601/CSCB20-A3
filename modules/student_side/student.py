@@ -47,5 +47,5 @@ def my_remark_request():
     if 'username' not in session.keys():
         return redirect(url_for('auth.signin'))
     return render_template('student_remark.html', 
-                           assignment_remark_results = get_assignment_remark_req(),
-                           exam_remark_results = get_exam_remark_req())
+                           assignment_remark_results = get_assignment_remark_req_by_cur_student(),
+                           exam_remark_results = get_exam_remark_req_by_cur_student())
