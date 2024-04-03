@@ -1,5 +1,5 @@
 from modules.models import *
-from flask import Blueprint, session, render_template, redirect, url_for, request
+from flask import Blueprint, session, render_template, redirect, url_for, request, jsonify
 from modules.feedback import get_feedback
 from modules.models import *
 from modules.student_side.assessment_info import *
@@ -67,6 +67,6 @@ def manage_grades():
 @ins.route('/edit_student_grades.html', methods = ['GET', 'POST'])
 def edit_student_grades():
     if request.method == 'POST':
-        assessment_type = request.json
-        print(assessment_type)
-    return render_template('edit_student_grades.html')
+        assessment_id = request.json
+        print(assessment_id)
+    return jsonify({'new_url': 'edit_student_grades.html'})

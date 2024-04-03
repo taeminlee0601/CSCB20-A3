@@ -6,8 +6,9 @@ $(document).ready(function() {
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({ data: ass_id }),
-            success: function(response) {
-                console.log('Server response:', response);
+            success: function(new_url) {
+                console.log('Sent sucessfully');
+                window.location.href='edit_student_grades.html'
             },
             error: function(error) {
                 console.log('Error:', error);
