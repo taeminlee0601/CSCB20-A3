@@ -56,7 +56,7 @@ def manage_grades():
         elif assessment_id['data'][0] == 'e':
             res = get_all_exam_info(assessment_id['data'])
             for item in res:
-                stu_grade_info.append((item.sid, item.sid, item.grade))
+                stu_grade_info.append((item.sid, item.eid, item.grade))
         return redirect(url_for('instructor.edit_student_grades'))
     return render_template('instructor_grades.html', ass_info = get_all_assignment_info()\
                            , exam_info = get_all_exam_info())
