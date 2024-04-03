@@ -13,6 +13,8 @@ $(document).ready(function() {
                 console.log('Error:', error);
             }
         });
+
+        window.location.href="edit_student_grades.html";
     });
 
     $('.exam-manage-grades-btn').click(function() {
@@ -29,5 +31,7 @@ $(document).ready(function() {
                 console.log('Error:', error);
             }
         });
+
+        window.location.href="edit_student_grades.html";
     });
 });
