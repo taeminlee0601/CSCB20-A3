@@ -68,8 +68,5 @@ def manage_grades():
 def edit_student_grades():
     if request.method == 'POST':
         assessment_type = request.json
-        # TODO: change assessment_type['attributes']
-        if assessment_type['type'] == 'exam':
-            pass
-        elif assessment_type['type'] == 'assignment':
-            pass
+        print(assessment_type)
+    return render_template('edit_student_grades.html')
