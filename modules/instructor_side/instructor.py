@@ -1,8 +1,9 @@
 from modules.models import *
-from flask import Blueprint, session, render_template, redirect, url_for, request, jsonify
+from flask import Blueprint, session, render_template, redirect, url_for, request
 from modules.feedback import get_feedback
 from modules.models import *
 from modules.student_side.assessment_info import *
+from modules.student_side.grades import *
 
 ins = Blueprint('instructor', __name__)
 
@@ -55,18 +56,32 @@ def display_feedback():
 #         mark = request.form['input-mark']
 #     return None
 
-@ins.route('/manage_grades')
-@ins.route('/instructor_grades.html')
+stu_grade_info = []
+@ins.route('/manage_grades', methods = ['GET', 'POST'])
+@ins.route('/instructor_grades.html', methods = ['GET', 'POST'])
 def manage_grades():
     if session['user-type'] != 'instructor':
         return redirect(url_for('home'))
+    if request.method == 'POST':
+        assessment_id = request.json
+        if assessment_id['data'][0] == 'a':
+            res = get_all_assignment_grades(assessment_id['data'])
+            for item in res:
+                stu_grade_info.append((item.sid, item.aid, item.grade))
+        elif assessment_id['data'][0] == 'e':
+            res = get_all_exam_info(assessment_id['data'])
+            for item in res:
+                stu_grade_info.append((item.sid, item.sid, item.grade))
+        return redirect(url_for('instructor.edit_student_grades'))
     return render_template('instructor_grades.html', ass_info = get_all_assignment_info()\
                            , exam_info = get_all_exam_info())
 
-@ins.route('/edit_grades', methods = ['GET', 'POST'])
-@ins.route('/edit_student_grades.html', methods = ['GET', 'POST'])
+@ins.route('/edit_grades')
+@ins.route('/edit_student_grades.html')
 def edit_student_grades():
-    if request.method == 'POST':
-        assessment_id = request.json
-        print(assessment_id)
-    return jsonify({'new_url': 'edit_student_grades.html'})
+    # This function will return render_template two times
+    # First one is from redirect(url_for) from POST request, and have to return back to the response
+    # --> can not load the webpage properly
+    # Since stu_grade_info is global variable so we can make a GET request again
+    # to load the page properly and pass stu_grade_info
+    return render_template('edit_student_grades.html', stu_grade_info = stu_grade_info)
