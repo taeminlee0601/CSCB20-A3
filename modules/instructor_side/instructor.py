@@ -69,4 +69,5 @@ def edit_student_grades():
     if request.method == 'POST':
         assessment_id = request.json
         print(assessment_id)
-    return jsonify({'new_url': 'edit_student_grades.html'})
+    # return jsonify({'new_url': 'edit_student_grades.html'})
+    return render_template('edit_student_grades.html')

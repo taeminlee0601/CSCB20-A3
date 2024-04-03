@@ -1,7 +1,7 @@
 {% extends 'user_template.html' %} {% block more_css %}
 <link rel="stylesheet" href="../static/css/edit_student_grades.css" />
 {% endblock %} {% block more_script %}
-<script src="../static/js/instructor_grades.js" defer></script>
+<script src="../static/js/edit_student_grades.js" defer></script>
 {% endblock %} {% block custom_menu %}
 <a href="instructor_grades.html"><li>Manage Grades</li></a>
 <a href="instructor_remarks.html"><li>View Remark Requests</li></a>
@@ -10,7 +10,7 @@
 <main>
   <h1>CSCB20</h1>
   <div class="assessment-list-box">
-    <h2>Students</h2>
+    <h2>{{aname}} - students</h2>
     <table>
       <thead>
         <th>UTORid</th>
@@ -21,15 +21,18 @@
         <tr>
           <td>Dummy1234</td>
           <td>Dummy</td>
+          <td class="edit-grade-box">
+            <span class="stu-grade">0</span>
+            <span>/ 100</span>
+          </td>
         </tr>
         {% for info in stu_grade_info %}
         <tr>
-          <td style="display: none" class="ass-id">{{ass_info[0]}}</td>
-          <td>{{ass_info[1]}}</td>
-          <td>{{ass_info[2]}}</td>
-          <td>{{ass_info[3]}}</td>
-          <td class="manage-grades">
-            <button class="manage-grades-btn">Manage Grades</button>
+          <td class="stu-id">{{info[0]}}</td>
+          <td>{{info[1]}}</td>
+          <td class="edit-grade-box">
+            <span class="stu-grade">{{info[2]}}</span>
+            <span>/ 100</span>
           </td>
         </tr>
         {% endfor %}
