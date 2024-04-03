@@ -4,7 +4,7 @@ from sqlalchemy import text
 
 def get_assignment_grades():
     '''
-    Return assignment information(id, name, grade, due_date) of a current student 
+    Return assignment information(aid, name, grade, due_date) of a current student 
     in session['username'] 
     '''
     cur_id = get_utorid_by_username(session['username'])
@@ -14,14 +14,25 @@ def get_assignment_grades():
     with db.engine.connect() as conn:
         return conn.execute(text(sql)).all()
     
+def get_all_assignment_grades(aid):
+    '''
+    Return assignment information(sid, name, grade) of a given assignment id 'aid'
+    '''
+    return Assignment_Grade.query.filter(Assignment_Grade.aid == aid).all()
+
+def get_all_exam_grades(eid):
+    '''
+    Return assignment information(sid, name, grade) of a given exam id 'eid'
+    '''
+    return Exam_Grade.query.filter(Exam_Grade.eid == eid).all()
+    
 def get_exam_grades():
     '''
-    Return exam information(id, name, grade, date) of a current student in 
+    Return exam information(eid, name, grade, date) of a current student in 
     session['username'] 
     '''
     cur_id = get_utorid_by_username(session['username'])
     sql = 'SELECT Exam.eid, Exam.name, Exam_Grade.grade, Exam.date FROM Exam JOIN Exam_Grade\
         ON Exam_Grade.eid = Exam.eid AND Exam_Grade.sid = "' + str(cur_id) + '"';
-    # TODO: Ask why we have to connect
     with db.engine.connect() as conn:
         return conn.execute(text(sql)).all()

@@ -30,10 +30,10 @@ button {
     word-wrap: break-word;
 }
 
-.tab, .navbar-title {
+.tab, .navbar-title, .profile-tab {
     background-color: #6C55B5;
 }
 
-.tab:hover {
+.tab:hover, .tab-profile:hover {
     background-color: #524289;
 }
