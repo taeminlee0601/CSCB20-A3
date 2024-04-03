@@ -17,10 +17,10 @@ iframe {
     height: 75vw;
 }
 
-.tab, .navbar-title {
+.tab, .navbar-title, .profile-tab {
     background-color: #8C55B5;
 }
 
-.tab:hover {
+.tab:hover, .tab-profile:hover {
     background-color: #6f369a;
 }
