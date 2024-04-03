@@ -7,7 +7,7 @@ $(document).ready(function() {
             contentType: 'application/json',
             data: JSON.stringify({ data: ass_id }),
             success: function() {
-                // console.log('Sent sucessfully', response);
+                console.log('Sent sucessfully');
                 window.location.href='edit_grades'
             },
             error: function(error) {
@@ -16,15 +16,17 @@ $(document).ready(function() {
         });
     });
 
-    $('.exam-manage-grades-btn').click(function() {
+    $('.exam-manage-grade-btn').click(function() {
+        console.log('click')
         var exam_id = $(this).closest('tr').find('.exam-id').text();
         $.ajax({
             url: 'http://127.0.0.1:5000/manage_grades',
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({ data: exam_id }),
-            success: function(response) {
-                console.log('Server response:', response);
+            success: function() {
+                console.log('Sent sucessfully');
+                window.location.href='edit_grades'
             },
             error: function(error) {
                 console.log('Error:', error);
