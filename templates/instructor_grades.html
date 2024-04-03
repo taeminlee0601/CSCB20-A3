@@ -25,12 +25,11 @@
             <button class="ass-manage-grades-btn">Manage Grades</button>
           </td>
         </tr>
-        {% for grade in assignment_grades %}
+        {% for info in ass_info %}
         <tr>
-          <td style="display: none" class="ass-id">{{ass_info[0]}}</td>
-          <td>{{ass_info[1]}}</td>
-          <td>{{ass_info[2]}}</td>
-          <td>{{ass_info[3]}}</td>
+          <td style="display: none" class="ass-id">{{info[0]}}</td>
+          <td>{{info[1]}}</td>
+          <td>{{info[2]}}</td>
           <td class="manage-grades">
             <button class="ass-manage-grades-btn">Manage Grades</button>
           </td>
@@ -48,12 +47,11 @@
         <th>manage grades</th>
       </thead>
       <tbody>
-        {% for grade in exam_grades %}
+        {% for info in exam_info %}
         <tr>
-          <td style="display: none" class="exam-id">{{exam_info[0]}}</td>
-          <td>{{exam_info[1]}}</td>
-          <td>{{exam_info[2]}}</td>
-          <td>{{exam_info[3]}}</td>
+          <td style="display: none" class="exam-id">{{info[0]}}</td>
+          <td>{{info[1]}}</td>
+          <td>{{info[2]}}</td>
           <td class="manage-grade">
             <button class="exam-manage-grade-btn">Manage Grades</button>
           </td>
