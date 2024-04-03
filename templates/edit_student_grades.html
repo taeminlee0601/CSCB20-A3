@@ -10,22 +10,19 @@
 <main>
   <h1>CSCB20</h1>
   <div class="assessment-list-box">
-    <h2>Assignment</h2>
+    <h2>Students</h2>
     <table>
       <thead>
+        <th>UTORid</th>
         <th>name</th>
-        <th>date</th>
-        <th>manage grades</th>
+        <th>grades</th>
       </thead>
       <tbody>
         <tr>
-          <td>Dummy Assignment</td>
-          <td>2024-03-30</td>
-          <td class="manage-grades">
-            <button class="manage-grades-btn">Manage Grades</button>
-          </td>
+          <td>Dummy1234</td>
+          <td>Dummy</td>
         </tr>
-        {% for grade in assignment_grades %}
+        {% for info in stu_grade_info %}
         <tr>
           <td style="display: none" class="ass-id">{{ass_info[0]}}</td>
           <td>{{ass_info[1]}}</td>
@@ -33,29 +30,6 @@
           <td>{{ass_info[3]}}</td>
           <td class="manage-grades">
             <button class="manage-grades-btn">Manage Grades</button>
-          </td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
-  <div class="assessment-list-box">
-    <h2>Exam</h2>
-    <table>
-      <thead>
-        <th>name</th>
-        <th>date</th>
-        <th>manage grades</th>
-      </thead>
-      <tbody>
-        {% for grade in exam_grades %}
-        <tr>
-          <td style="display: none" class="exam-id">{{exam_info[0]}}</td>
-          <td>{{exam_info[1]}}</td>
-          <td>{{exam_info[2]}}</td>
-          <td>{{exam_info[3]}}</td>
-          <td class="manage-grade">
-            <button class="manage-grade-btn">Manage Grades</button>
           </td>
         </tr>
         {% endfor %}
