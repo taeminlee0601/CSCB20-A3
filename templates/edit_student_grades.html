@@ -1,61 +1,38 @@
 {% extends 'user_template.html' %} {% block more_css %}
-<link rel="stylesheet" href="../static/css/instructor_grades.css" />
+<link rel="stylesheet" href="../static/css/edit_student_grades.css" />
 {% endblock %} {% block more_script %}
-<script src="../static/js/instructor_grades.js" defer></script>
+<script src="../static/js/edit_student_grades.js" defer></script>
 {% endblock %} {% block custom_menu %}
-<a href="instructor_grades.html"><li>Manage Grades</li></a>
+<a href="manage_grades"><li>Manage Grades</li></a>
 <a href="instructor_remarks.html"><li>View Remark Requests</li></a>
 <a href="instructor_feedbacks.html"><li>View Feedbacks</li></a>
 {% endblock%} {% block content %}
 <main>
   <h1>CSCB20</h1>
   <div class="assessment-list-box">
-    <h2>Assignment</h2>
+    <h2>{{assessment_name}} - students</h2>
     <table>
       <thead>
-        <th>name</th>
-        <th>date</th>
-        <th>manage grades</th>
+        <th>assignment id</th>
+        <th>UTORid</th>
+        <th>grades</th>
       </thead>
       <tbody>
         <tr>
-          <td>Dummy Assignment</td>
-          <td>2024-03-30</td>
-          <td class="manage-grades">
-            <button class="manage-grades-btn">Manage Grades</button>
+          <td class="aid">a1</td>
+          <td class="sid">Dummy1234</td>
+          <td class="edit-grade-box">
+            <span class="stu-grade">0</span>
+            <span>/ 100</span>
           </td>
         </tr>
-        {% for grade in assignment_grades %}
+        {% for info in stu_grade_info %}
         <tr>
-          <td style="display: none" class="ass-id">{{ass_info[0]}}</td>
-          <td>{{ass_info[1]}}</td>
-          <td>{{ass_info[2]}}</td>
-          <td>{{ass_info[3]}}</td>
-          <td class="manage-grades">
-            <button class="manage-grades-btn">Manage Grades</button>
-          </td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
-  <div class="assessment-list-box">
-    <h2>Exam</h2>
-    <table>
-      <thead>
-        <th>name</th>
-        <th>date</th>
-        <th>manage grades</th>
-      </thead>
-      <tbody>
-        {% for grade in exam_grades %}
-        <tr>
-          <td style="display: none" class="exam-id">{{exam_info[0]}}</td>
-          <td>{{exam_info[1]}}</td>
-          <td>{{exam_info[2]}}</td>
-          <td>{{exam_info[3]}}</td>
-          <td class="manage-grade">
-            <button class="manage-grade-btn">Manage Grades</button>
+          <td class="aid">{{info[1]}}</td>
+          <td class="sid">{{info[0]}}</td>
+          <td class="edit-grade-box">
+            <span class="stu-grade">{{info[2]}}</span>
+            <span>/ 100</span>
           </td>
         </tr>
         {% endfor %}

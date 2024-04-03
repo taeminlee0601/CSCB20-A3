@@ -56,7 +56,7 @@ def manage_grades():
         elif assessment_id['data'][0] == 'e':
             res = get_all_exam_info(assessment_id['data'])
             for item in res:
-                stu_grade_info.append((item.sid, item.sid, item.grade))
+                stu_grade_info.append((item.sid, item.eid, item.grade))
         return redirect(url_for('instructor.edit_student_grades'))
     return render_template('instructor_grades.html', ass_info = get_all_assignment_info()\
                            , exam_info = get_all_exam_info())
@@ -70,7 +70,9 @@ def edit_student_grades():
     # to load the page properly and pass stu_grade_info
     if request.method == 'POST':
         # update mark into database
-        pass
+        new_grade_info = request.json
+        print(new_grade_info) # Added to check if data is passed correctly
+        return redirect(url_for('instructor.edit_student_grades'))
     return render_template('edit_student_grades.html', stu_grade_info = stu_grade_info)
 
 @ins.route('/manage_remark_request', methods = ['GET', 'POST'])
