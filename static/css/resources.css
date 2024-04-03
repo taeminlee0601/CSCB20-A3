@@ -24,10 +24,10 @@ img {
     height: auto;
 }
 
-.tab, .navbar-title {
+.tab, .navbar-title, .profile-tab {
     background-color: #559AB5;
 }
 
-.tab:hover {
+.tab:hover, .tab-profile:hover {
     background-color: #36738b;
 }
