@@ -16,3 +16,9 @@ def get_all_exam_info():
     sql = 'SELECT Exam.eid, Exam.name, Exam.date FROM Exam'
     with db.engine.connect() as conn:
         return conn.execute(text(sql)).all()
+
+def get_exam_name_by_eid(eid):
+    '''
+    Return assignment name by given eid 'eid'
+    '''
+    return Exam.query.filter(Exam.eid == eid).first().name

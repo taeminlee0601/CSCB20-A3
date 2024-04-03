@@ -8,10 +8,6 @@ from modules.student_side.remark_req import *
 
 ins = Blueprint('instructor', __name__)
 
-# - Display feedback from students (anonymously)
-# - Add/Edit/Remove student's mark
-# - Show regrade request from a particular student and assignment/exam 
-
 @ins.route('/view_my_feedback')
 def display_feedback():
     '''
@@ -73,7 +69,15 @@ def edit_student_grades():
         new_grade_info = request.json
         print(new_grade_info) # Added to check if data is passed correctly
         return redirect(url_for('instructor.edit_student_grades'))
-    return render_template('edit_student_grades.html', stu_grade_info = stu_grade_info)
+
+    assessment_name = ''
+    if len(stu_grade_info) > 0:
+        if stu_grade_info[0][1][0] == 'e': # exam type
+            assessment_name = get_exam_name_by_eid(stu_grade_info[0][1])
+        if stu_grade_info[0][1][0] == 'a': # assignment type
+            assessment_name = get_assignment_name_by_id(stu_grade_info[0][1])
+    return render_template('edit_student_grades.html', stu_grade_info = stu_grade_info, \
+    assessment_name = assessment_name)
 
 @ins.route('/manage_remark_request', methods = ['GET', 'POST'])
 def manage_remark_request():
