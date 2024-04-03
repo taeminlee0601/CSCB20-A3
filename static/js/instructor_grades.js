@@ -17,7 +17,6 @@ $(document).ready(function() {
     });
 
     $('.exam-manage-grade-btn').click(function() {
-        console.log('click')
         var exam_id = $(this).closest('tr').find('.exam-id').text();
         $.ajax({
             url: 'http://127.0.0.1:5000/manage_grades',
