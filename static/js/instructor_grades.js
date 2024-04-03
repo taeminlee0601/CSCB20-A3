@@ -2,7 +2,7 @@ $(document).ready(function() {
     $('.ass-manage-grades-btn').click(function() {
         var ass_id = $(this).closest('tr').find('.ass-id').text();
         $.ajax({
-            url: 'http://127.0.0.1:5000/instructor_grades.html',
+            url: 'http://127.0.0.1:5000/edit_grades',
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({ data: ass_id }),
@@ -20,7 +20,7 @@ $(document).ready(function() {
     $('.exam-manage-grades-btn').click(function() {
         var exam_id = $(this).closest('tr').find('.exam-id').text();
         $.ajax({
-            url: 'http://127.0.0.1:5000/instructor_grades.html',
+            url: 'http://127.0.0.1:5000/edit_grades',
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({ data: exam_id }),

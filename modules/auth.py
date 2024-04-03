@@ -19,6 +19,7 @@ def signin():
                       request.form['input-password'])
         if login_check(login_info):
             session['username'] = login_info[0]
+            session['user-type'] = get_usertype_by_username(session['username'])
             session.permanent = True
             return redirect(url_for('home'))
         else:

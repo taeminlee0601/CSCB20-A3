@@ -5,7 +5,7 @@ db = SQLAlchemy()
 
 class Assignment(db.Model):
     __tablename__ = 'Assignment'
-    aid = db.Column(db.Integer, primary_key = True, autoincrement = True)
+    aid = db.Column(db.String(5), primary_key = True)
     name = db.Column(db.String(30), nullable = False)
     due_date = db.Column(db.String(20), nullable = False)
     description = db.Column(db.String(2000), nullable = False)
@@ -16,12 +16,12 @@ class Assignment(db.Model):
 class Assignment_Grade(db.Model):
     __tablename__ = 'Assignment_Grade'
     sid = db.Column(db.String(20), primary_key = True)
-    aid = db.Column(db.Integer, db.ForeignKey('Assignment.aid'), primary_key = True, nullable = False)
+    aid = db.Column(db.String(5), db.ForeignKey('Assignment.aid'), primary_key = True, nullable = False)
     grade = db.Column(db.Float, nullable = False)
 
 class Exam(db.Model):
     __tablename__ = 'Exam'
-    eid = db.Column(db.Integer, primary_key = True, autoincrement = True)
+    eid = db.Column(db.String(5), primary_key = True)
     name = db.Column(db.String(30), nullable = False)
     date = db.Column(db.String(20), nullable = False)
     weight = db.Column(db.Float, nullable = False)
@@ -30,14 +30,14 @@ class Exam(db.Model):
 class Exam_Grade(db.Model):
     __tablename__ = 'Exam_Grade'
     sid = db.Column(db.String(20), primary_key = True)  
-    eid = db.Column(db.Integer, db.ForeignKey('Exam.eid'), primary_key = True)
+    eid = db.Column(db.String(5), db.ForeignKey('Exam.eid'), primary_key = True)
     grade = db.Column(db.Float)
 
 class Assignment_Regrade_Request(db.Model):
     __tablename__ = 'Assignment_Regrade_Request'
     reqid = db.Column(db.Integer, primary_key = True, autoincrement = True)
     sid = db.Column(db.String(20)) 
-    aid = db.Column(db.Integer)
+    aid = db.Column(db.String(5))
     description = db.Column(db.String(2000))
     comment = db.Column(db.String(2000))
 
@@ -45,7 +45,7 @@ class Exam_Regrade_Request(db.Model):
     __tablename__ = 'Exam_Regrade_Request'
     reqid = db.Column(db.Integer, primary_key = True, autoincrement = True)
     sid = db.Column(db.String(20)) 
-    eid = db.Column(db.Integer)
+    eid = db.Column(db.String(5))
     description = db.Column(db.String(2000))
     comment = db.Column(db.String(2000))
 
@@ -86,3 +86,9 @@ def get_assignment_id_by_name(assignment_name):
     Return assignment id based on name of the 'assignment_name'
     '''
     return Assignment.query.filter(Assignment.name == assignment_name).first().aid
+
+def get_usertype_by_username(username):
+    '''
+    Return the user_type (either 'instructor' or 'student' by the username)
+    '''
+    return Login.query.filter(Login.username == username).first().user_type

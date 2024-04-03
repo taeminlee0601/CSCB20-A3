@@ -27,7 +27,7 @@ def home():
     if 'username' not in session.keys():
         return redirect(url_for('auth.signin'))
     pagename = 'Home'
-    return render_template('index.html', pagename=pagename)
+    return render_template('index.html', pagename=pagename, user_type = session['user-type'])
 
 @app.route('/assignment.html')
 @app.route('/assignment')
@@ -36,7 +36,7 @@ def assignment():
         return redirect(url_for('auth.signin'))
     
     pagename = 'Assignment'
-    return render_template('assignment.html', pagename=pagename)
+    return render_template('assignment.html', pagename=pagename, user_type = session['user-type'])
 
 @app.route('/calendar')
 @app.route('/calendar.html')
@@ -44,7 +44,7 @@ def calendar():
     if 'username' not in session.keys():
         return redirect(url_for('auth.signin'))
     pagename = 'Calendar'
-    return render_template('calendar.html', pagename=pagename)
+    return render_template('calendar.html', pagename=pagename, user_type = session['user-type'])
 
 @app.route('/course_description')
 @app.route('/course_description.html')
@@ -52,7 +52,7 @@ def course_description():
     if 'username' not in session.keys():
         return redirect(url_for('auth.signin'))
     pagename = 'Course Description'
-    return render_template('course_description.html', pagename=pagename)
+    return render_template('course_description.html', pagename=pagename, user_type = session['user-type'])
 
 @app.route('/course_team')
 @app.route('/course_team.html')
@@ -60,7 +60,7 @@ def course_team():
     if 'username' not in session.keys():
         return redirect(url_for('auth.signin'))
     pagename = 'Course Team'
-    return render_template('course_team.html', pagename=pagename)
+    return render_template('course_team.html', pagename=pagename, user_type = session['user-type'])
 
 @app.route('/lectures')
 @app.route('/lectures.html')
@@ -68,7 +68,7 @@ def lectures():
     if 'username' not in session.keys():
         return redirect(url_for('auth.signin'))
     pagename = 'Lectures'
-    return render_template('lectures.html', pagename=pagename)
+    return render_template('lectures.html', pagename=pagename, user_type = session['user-type'])
 
 @app.route('/resources')
 @app.route('/resources.html')
@@ -76,7 +76,7 @@ def resources():
     if 'username' not in session.keys():
         return redirect(url_for('auth.signin'))
     pagename = 'Resources'
-    return render_template('resources.html', pagename=pagename)
+    return render_template('resources.html', pagename=pagename, user_type = session['user-type'])
 
 @app.route('/syllabus')
 @app.route('/syllabus.html')
@@ -84,7 +84,7 @@ def syllabus():
     if 'username' not in session.keys():
         return redirect(url_for('auth.signin'))
     pagename = 'Syllabus'
-    return render_template('syllabus.html', pagename=pagename)
+    return render_template('syllabus.html', pagename=pagename, user_type = session['user-type'])
 
 @app.route('/tests')
 @app.route('/tests.html')
@@ -92,7 +92,7 @@ def tests():
     if 'username' not in session.keys():
         return redirect(url_for('auth.signin'))
     pagename = 'Tests'
-    return render_template('tests.html', pagename=pagename)
+    return render_template('tests.html', pagename=pagename, user_type = session['user-type'])
 
 @app.route('/tutorials')
 @app.route('/tutorials.html')
@@ -100,7 +100,7 @@ def tutorials():
     if 'username' not in session.keys():
         return redirect(url_for('auth.signin'))
     pagename = 'Tutorials'
-    return render_template('tutorials.html', pagename=pagename)
+    return render_template('tutorials.html', pagename=pagename, user_type = session['user-type'])
 
 @app.route('/logout', methods=['GET', 'POST'])
 def log_out():
