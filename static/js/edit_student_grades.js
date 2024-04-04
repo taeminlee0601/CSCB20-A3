@@ -11,7 +11,7 @@ $(document).ready(function() {
                     url: 'http://127.0.0.1:5000/edit_grades',
                     type: 'POST',
                     contentType: 'application/json',
-                    data: JSON.stringify({ aid: aid, sid: sid, new_grade: new_grade}),
+                    data: JSON.stringify({ id: aid, sid: sid, new_grade: new_grade}),
                     success: function(new_url) {
                         console.log('Sent sucessfully');
                     },

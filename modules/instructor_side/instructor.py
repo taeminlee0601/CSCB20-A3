@@ -51,7 +51,7 @@ def manage_grades():
                 stu_grade_info.append((item.sid, item.aid, item.grade))
         # exam type
         elif assessment_id['data'][0] == 'e':
-            res = get_all_exam_info(assessment_id['data'])
+            res = get_all_exam_grades(assessment_id['data'])
             for item in res:
                 stu_grade_info.append((item.sid, item.eid, item.grade))
         return redirect(url_for('instructor.edit_student_grades'))
