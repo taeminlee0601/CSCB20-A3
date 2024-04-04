@@ -36,3 +36,21 @@ def get_exam_grades():
         ON Exam_Grade.eid = Exam.eid AND Exam_Grade.sid = "' + str(cur_id) + '"';
     with db.engine.connect() as conn:
         return conn.execute(text(sql)).all()
+    
+def update_grades(new_grade_info):
+    '''
+    Update grade to the database on given the dictionary 'new_grade_info' including
+    (sid, aid, (new) grade)
+    '''
+    if new_grade_info['aid'][0] == 'a': # assignment type
+        sql = 'UPDATE Assignment_Grade SET Assignment_Grade.grade = ' + new_grade_info['grade']\
+              + ' WHERE Assignment_Grade.aid == "' + new_grade_info['aid'] + '"\
+                AND Assignment_Grade.sid == "' + new_grade_info['sid']
+        with db.engine.connect() as conn:
+            conn.execute(sql)
+    elif new_grade_info['aid'][1] == 'e': # exam type
+        sql = 'UPDATE Exam_Grade SET Exam_Grade.grade = ' + new_grade_info['grade']\
+              + ' WHERE Exam_Grade.eid == "' + new_grade_info['eid'] + '"\
+                AND Exam_Grade.sid == "' + new_grade_info['sid']
+        with db.engine.connect() as conn:
+            conn.execute(sql)

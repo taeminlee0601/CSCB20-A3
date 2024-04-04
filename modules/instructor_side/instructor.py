@@ -68,6 +68,7 @@ def edit_student_grades():
         # update mark into database
         new_grade_info = request.json
         print(new_grade_info) # Added to check if data is passed correctly
+        update_grades(new_grade_info)
         return redirect(url_for('instructor.edit_student_grades'))
 
     assessment_name = ''
