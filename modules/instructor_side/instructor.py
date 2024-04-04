@@ -37,6 +37,7 @@ def display_feedback():
 
 stu_grade_info = []
 @ins.route('/manage_grades', methods = ['GET', 'POST'])
+@ins.route('/instructor_grades.html', methods = ['GET', 'POST'])
 def manage_grades():
     if session['user-type'] != 'instructor':
         return redirect(url_for('home'))

@@ -69,7 +69,7 @@
             <a class="tab-profile" onclick="showDropdown(document.getElementById('dropdown-content-mobile-profile'))">My Profile</a>
           </div>
           <div class="dropdown-content-mobile" id="dropdown-content-mobile-profile">
-            {% if isInstructor %}
+            {% if user_type == 'instructor' %}
             <a class="dropdown-tab" href="instructor_grades.html">Manage Grades</a>
             {% else %}
             <a class="dropdown-tab" href="student_grades.html">My Grades</a>
@@ -87,7 +87,7 @@
             </div>
           </a>
           <div class="dropdown-content">
-            {% if isInstructor %}
+            {% if user_type == 'instructor' %}
             <a class="dropdown-tab" href="instructor_grades.html">Manage Grades</a>
             {% else %}
             <a class="dropdown-tab" href="student_grades.html">My Grades</a>
