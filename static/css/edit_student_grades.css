@@ -1,0 +1,33 @@
+@import url(student_grades.css);
+
+tr {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+button {
+    border: 0;
+    border-radius: 0.5rem;
+    height: 2rem;
+    font-family: 'Merriweather Sans';
+}
+
+input {
+    font-family: 'Merriweather Sans';
+    width: 2rem;
+    height: 1rem;
+    align-self: flex-start;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #444;
+    border-radius: 0.5rem;
+    color: black;
+    text-align: center;
+}
+
+/* ::placeholder {
+    color: white;
+}
+
+input:focus {
+    outline: none;
+} */

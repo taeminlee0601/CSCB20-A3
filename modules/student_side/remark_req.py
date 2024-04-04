@@ -3,10 +3,16 @@ from modules.models import *
 
 def get_assignment_remark_req():
     '''
+    Return assignment regrade request info (reqid, sid, aid, desc, comment) 
+    '''
+    return Assignment_Regrade_Request.query.all()
+
+def get_assignment_remark_req_by_cur_student():
+    '''
     Return assignment regrade request (name, (new) mark, comment from instructor) 
     for current student by "session['username']"
     '''
-    ass_req = Assignment_Regrade_Request.query.all()
+    ass_req = get_assignment_remark_req()
     cur_utorid = get_utorid_by_username(session['username'])
     ret = []
     for item in ass_req:
@@ -19,10 +25,16 @@ def get_assignment_remark_req():
 
 def get_exam_remark_req():
     '''
+    Return exam regrade request info (reqid, sid, eid, desc, comment) 
+    '''
+    return Exam_Regrade_Request.query.all()
+
+def get_exam_remark_req_by_cur_student():
+    '''
     Return exam regrade request (name, (new) mark, comment from instructor) for 
     current student by "session['username']"
     '''
-    exam_req = Exam_Regrade_Request.query.all()
+    exam_req = get_exam_remark_req()
     cur_utorid = get_utorid_by_username(session['username'])
     ret = []
     for item in exam_req:

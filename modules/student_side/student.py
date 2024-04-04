@@ -10,6 +10,8 @@ student = Blueprint("student", __name__)
 def info():
     if 'username' not in session.keys():
         return redirect(url_for('auth.signin'))
+    if session['user-type'] != 'student':
+        return redirect(url_for('home'))
     assignment_grades = get_assignment_grades()
     exam_grades = get_exam_grades()
     return render_template('student_grades.html', assignment_grades = assignment_grades\
@@ -19,6 +21,8 @@ def info():
 def remark():
     if 'username' not in session.keys():
         return redirect(url_for('auth.signin'))
+    if session['user-type'] != 'student':
+        return redirect(url_for('home'))
     req = request.json
     cur_utorid = get_utorid_by_username(session['username'])
     if request.method == 'POST' and req.get('document-type').lower() == 'assignment':
@@ -38,8 +42,10 @@ def remark():
 @student.route('/my_remark_request')
 @student.route('/student_remark.html')
 def my_remark_request():
+    if session['user-type'] != 'student':
+        return redirect(url_for('home'))
     if 'username' not in session.keys():
         return redirect(url_for('auth.signin'))
     return render_template('student_remark.html', 
-                           assignment_remark_results = get_assignment_remark_req(),
-                           exam_remark_results = get_exam_remark_req())
+                           assignment_remark_results = get_assignment_remark_req_by_cur_student(),
+                           exam_remark_results = get_exam_remark_req_by_cur_student())

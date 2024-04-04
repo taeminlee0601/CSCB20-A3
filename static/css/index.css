@@ -141,7 +141,7 @@ a:hover {
 
 .tab {
   display: block;
-  background-color: rgb(137, 171, 255);
+  background-color: #565EB6;
   color: white;
   font-family: 'Merriweather Sans';
   font-size: large;
@@ -152,12 +152,12 @@ a:hover {
 
 .navbar-filler {
   display: none;
-  background-color: rgb(137, 171, 255);
+  background-color: #565EB6;
 }
 
 .navbar-title {
   display: block;
-  background-color: rgb(137, 171, 255);
+  background-color: #565EB6;
   color: white;
   font-family: 'Merriweather Sans';
   font-size: large;
@@ -167,11 +167,11 @@ a:hover {
 }
 
 .tab:hover {
-  background-color: rgb(104, 129, 251);
+  background-color: #373f96;
 }
 
 .tab-profile:hover {
-  background-color: rgb(104, 129, 251);
+  background-color: #373f96;
 }
 
 .dropdown {
@@ -241,7 +241,8 @@ a:hover {
   height: 100%;
   justify-content: center;
   align-items: center;
-  background-color: rgb(137, 171, 255);
+  background-color: #565EB6;
+  color: white;
 }
 
 .profile-icon-container {
