@@ -43,14 +43,14 @@ def update_grades(new_grade_info):
     (sid, aid, (new) grade)
     '''
     if new_grade_info['aid'][0] == 'a': # assignment type
-        sql = 'UPDATE Assignment_Grade SET Assignment_Grade.grade = ' + new_grade_info['grade']\
+        sql = 'UPDATE Assignment_Grade SET Assignment_Grade.grade = ' + new_grade_info['new_grade']\
               + ' WHERE Assignment_Grade.aid == "' + new_grade_info['aid'] + '"\
-                AND Assignment_Grade.sid == "' + new_grade_info['sid']
+                AND Assignment_Grade.sid == "' + new_grade_info['sid'] + '"'
         with db.engine.connect() as conn:
             conn.execute(sql)
     elif new_grade_info['aid'][1] == 'e': # exam type
-        sql = 'UPDATE Exam_Grade SET Exam_Grade.grade = ' + new_grade_info['grade']\
+        sql = 'UPDATE Exam_Grade SET Exam_Grade.grade = ' + new_grade_info['new_grade']\
               + ' WHERE Exam_Grade.eid == "' + new_grade_info['eid'] + '"\
-                AND Exam_Grade.sid == "' + new_grade_info['sid']
+                AND Exam_Grade.sid == "' + new_grade_info['sid'] + '"'
         with db.engine.connect() as conn:
             conn.execute(sql)
