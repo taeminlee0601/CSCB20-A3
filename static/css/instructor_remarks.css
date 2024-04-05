@@ -1,0 +1,48 @@
+@import url(student_grades.css);
+
+tr {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+#student-comment {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 32vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(14, 48, 98);
+    border-radius: 0.5rem;
+    box-shadow: 0 0 5px rgb(90, 90, 90);
+    color: white;
+    padding: 1vw;
+}
+
+#add-comment-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 32vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(14, 48, 98);
+    border-radius: 0.5rem;
+    box-shadow: 0 0 5px rgb(90, 90, 90);
+    color: white;
+    padding: 1vw;
+}
+
+.ass-view-student-comment-btn, .ass-add-comment-btn, #submit-comment {
+    border: 0;
+    border-radius: 0.5rem;
+    height: 2rem;
+    font-family: 'Merriweather Sans';
+}

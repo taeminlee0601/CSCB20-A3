@@ -9,6 +9,7 @@ from modules.student_side.remark_req import *
 ins = Blueprint('instructor', __name__)
 
 @ins.route('/view_my_feedback')
+@ins.route('/instructor_feedbacks.html')
 def display_feedback():
     '''
     Get the feedback to the database and display it on the website
@@ -81,6 +82,7 @@ def edit_student_grades():
     assessment_name = assessment_name)
 
 @ins.route('/manage_remark_request', methods = ['GET', 'POST'])
+@ins.route('/instructor_remarks.html', methods = ['GET', 'POST'])
 def manage_remark_request():
     if request.method == 'POST':
         # update mark and comment to database
@@ -93,5 +95,5 @@ def manage_remark_request():
         ass_reqs.append((item.reqid, item.sid, item.aid, item.description))
     for item in ret_exam_req:
         exam_reqs.append((item.reqid, item.sid, item.aid, item.description))
-    return render_template('instructor_remark_request.html', exam_reqs = exam_reqs, \
+    return render_template('instructor_remarks.html', exam_reqs = exam_reqs, \
                            ass_reqs = ass_reqs)
