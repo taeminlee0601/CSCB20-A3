@@ -66,3 +66,7 @@ a:hover {
 .log-out:hover {
     cursor: pointer;
 }
+
+#log-out-box {
+    align-items: flex-start;
+}
