@@ -17,6 +17,7 @@
     <title>CSCB20</title>
     {% endif %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../static/js/user_template.js"></script>
     {% block more_script %} {% endblock %}
   </head>
   <body>
@@ -34,10 +35,12 @@
           </ul>
         </div>
       </div>
-      <a class="log-out" herf="#">
-        <img src="../static/src/images/logout.png" alt="log-out-icon" />
-        Log Out
-      </a>
+      <form method="POST" action="127.0.0.1:5000/logout" id="log-out-box">
+        <a class="log-out">
+          <img src="../static/src/images/logout.png" alt="log-out-icon" />
+          Log Out
+        </a>
+      </form>
     </nav>
     {% block content %} {% endblock %}
   </body>

@@ -7,6 +7,7 @@ from modules.student_side.grades import *
 from modules.student_side.remark_req import *
 
 ins = Blueprint('instructor', __name__)
+stu_grade_info = []
 
 @ins.route('/view_my_feedback')
 def display_feedback():
@@ -35,24 +36,32 @@ def display_feedback():
     return render_template('feedback.html', rsp_q1 = rsp_q1, rsp_q2 = rsp_q2, \
                            rsp_q3 = rsp_q3, rsp_q4 = rsp_q4)
 
-stu_grade_info = []
+def update_student_info(assessment_id):
+    '''
+    Update all grades and all students information (sid, aid, grade) to global list
+    'stu_grade_info' base on a given assessment id 'assessment_id'
+    '''
+    stu_grade_info.clear()
+    # assignment type
+    if assessment_id[0] == 'a':
+        res = get_all_assignment_grades(assessment_id)
+        for item in res:
+            stu_grade_info.append((item.sid, item.aid, item.grade))
+    # exam type
+    elif assessment_id[0] == 'e':
+        res = get_all_exam_grades(assessment_id)
+        for item in res:
+            stu_grade_info.append((item.sid, item.eid, item.grade))
+    print(stu_grade_info)
+
 @ins.route('/manage_grades', methods = ['GET', 'POST'])
+@ins.route('/instructor_grades.html', methods = ['GET', 'POST'])
 def manage_grades():
     if session['user-type'] != 'instructor':
         return redirect(url_for('home'))
     if request.method == 'POST':
-        assessment_id = request.json
-        stu_grade_info.clear()
-        # assignment type
-        if assessment_id['data'][0] == 'a':
-            res = get_all_assignment_grades(assessment_id['data'])
-            for item in res:
-                stu_grade_info.append((item.sid, item.aid, item.grade))
-        # exam type
-        elif assessment_id['data'][0] == 'e':
-            res = get_all_exam_info(assessment_id['data'])
-            for item in res:
-                stu_grade_info.append((item.sid, item.eid, item.grade))
+        assessment_id = request.json # request send type of assesment
+        update_student_info(assessment_id['data'])
         return redirect(url_for('instructor.edit_student_grades'))
     return render_template('instructor_grades.html', ass_info = get_all_assignment_info()\
                            , exam_info = get_all_exam_info())
@@ -68,6 +77,7 @@ def edit_student_grades():
         # update mark into database
         new_grade_info = request.json
         print(new_grade_info) # Added to check if data is passed correctly
+        update_grades(new_grade_info)
         return redirect(url_for('instructor.edit_student_grades'))
 
     assessment_name = ''
@@ -76,6 +86,8 @@ def edit_student_grades():
             assessment_name = get_exam_name_by_eid(stu_grade_info[0][1])
         if stu_grade_info[0][1][0] == 'a': # assignment type
             assessment_name = get_assignment_name_by_id(stu_grade_info[0][1])
+        update_student_info(stu_grade_info[0][1])
+    
     return render_template('edit_student_grades.html', stu_grade_info = stu_grade_info, \
     assessment_name = assessment_name)
 
