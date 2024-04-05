@@ -14,6 +14,7 @@ $(document).ready(function() {
                     data: JSON.stringify({ id: aid, sid: sid, new_grade: new_grade}),
                     success: function(new_url) {
                         console.log('Sent sucessfully');
+                        $('.new-grade').replaceWith('<span class="stu-grade">' + new_grade + '</span>');
                     },
                     error: function(error) {
                         console.log('Error:', error);
