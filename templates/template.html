@@ -101,7 +101,7 @@
             class="dropdown-content-mobile"
             id="dropdown-content-mobile-profile"
           >
-            {% if isInstructor %}
+            {% if user_type == 'instructor' %}
             <a class="dropdown-tab" href="instructor_grades.html"
               >Manage Grades</a
             >
@@ -121,7 +121,7 @@
             </div>
           </a>
           <div class="dropdown-content">
-            {% if isInstructor %}
+            {% if user_type == 'instructor' %}
             <a class="dropdown-tab" href="instructor_grades.html"
               >Manage Grades</a
             >

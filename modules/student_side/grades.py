@@ -42,15 +42,13 @@ def update_grades(new_grade_info):
     Update grade to the database on given the dictionary 'new_grade_info' including
     (sid, aid, (new) grade)
     '''
-    if new_grade_info['aid'][0] == 'a': # assignment type
-        sql = 'UPDATE Assignment_Grade SET Assignment_Grade.grade = ' + new_grade_info['new_grade']\
-              + ' WHERE Assignment_Grade.aid == "' + new_grade_info['aid'] + '"\
-                AND Assignment_Grade.sid == "' + new_grade_info['sid'] + '"'
-        with db.engine.connect() as conn:
-            conn.execute(sql)
-    elif new_grade_info['aid'][1] == 'e': # exam type
-        sql = 'UPDATE Exam_Grade SET Exam_Grade.grade = ' + new_grade_info['new_grade']\
-              + ' WHERE Exam_Grade.eid == "' + new_grade_info['eid'] + '"\
-                AND Exam_Grade.sid == "' + new_grade_info['sid'] + '"'
-        with db.engine.connect() as conn:
-            conn.execute(sql)
+    if new_grade_info['id'][0] == 'a': # assignment type
+        student = Assignment_Grade.query.filter(Assignment_Grade.aid == new_grade_info['id']\
+                                      and Assignment_Grade.sid == new_grade_info['sid']).first()
+        student.grade = new_grade_info['new_grade']
+        db.session.commit()
+    elif new_grade_info['id'][0] == 'e': # exam type
+        student = Exam_Grade.query.filter(Exam_Grade.eid == new_grade_info['id']\
+                                      and Exam_Grade.sid == new_grade_info['sid']).first()
+        student.grade = new_grade_info['new_grade']
+        db.session.commit()
