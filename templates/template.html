@@ -23,7 +23,10 @@
       <div class="navbar">
         <a class="navbar-title" href="index.html">CSCB20</a>
         <div class="navbar-filler">
-          <div class="menu-button" onclick="menuBarClicked(this, document.querySelector('.tab-grid'))">
+          <div
+            class="menu-button"
+            onclick="menuBarClicked(this, document.querySelector('.tab-grid'))"
+          >
             <div class="menu-bar1"></div>
             <div class="menu-bar2"></div>
             <div class="menu-bar3"></div>
@@ -31,23 +34,38 @@
         </div>
         <div class="tab-grid">
           <div class="dropdown">
-            <a class="tab" id="tab" onclick="showDropdown(document.getElementById('dropdown-content-mobile-home'))">Home</a>
+            <a
+              class="tab"
+              id="tab"
+              onclick="showDropdown(document.getElementById('dropdown-content-mobile-home'))"
+              >Home</a
+            >
             <div class="dropdown-content">
               <a href="syllabus.html">Syllabus</a>
             </div>
           </div>
-          <div class="dropdown-content-mobile" id="dropdown-content-mobile-home">
+          <div
+            class="dropdown-content-mobile"
+            id="dropdown-content-mobile-home"
+          >
             <a class="dropdown-tab" href="syllabus.html">Syllabus</a>
           </div>
           <div class="dropdown">
-            <a class="tab" onclick="showDropdown(document.getElementById('dropdown-content-mobile-material'))">Material</a>
+            <a
+              class="tab"
+              onclick="showDropdown(document.getElementById('dropdown-content-mobile-material'))"
+              >Material</a
+            >
             <div class="dropdown-content">
               <a href="assignment.html">Assignments</a>
               <a href="lectures.html">Lectures</a>
               <a href="tutorials.html">Labs</a>
             </div>
           </div>
-          <div class="dropdown-content-mobile" id="dropdown-content-mobile-material">
+          <div
+            class="dropdown-content-mobile"
+            id="dropdown-content-mobile-material"
+          >
             <a class="dropdown-tab" href="assignment.html">Assignments</a>
             <a class="dropdown-tab" href="lectures.html">Lectures</a>
             <a class="dropdown-tab" href="tutorials.html">Labs</a>
@@ -55,22 +73,38 @@
           <a class="tab" href="resources.html">Resources</a>
           <a class="tab" href="calendar.html">Calendar</a>
           <div class="dropdown">
-            <a class="tab" onclick="showDropdown(document.getElementById('dropdown-content-mobile-contact'))">Contact</a>
+            <a
+              class="tab"
+              onclick="showDropdown(document.getElementById('dropdown-content-mobile-contact'))"
+              >Contact</a
+            >
             <div class="dropdown-content">
               <a href="course_team.html">Course Team</a>
               <a href="feedback.html">Feedback</a>
             </div>
           </div>
-          <div class="dropdown-content-mobile" id="dropdown-content-mobile-contact">
+          <div
+            class="dropdown-content-mobile"
+            id="dropdown-content-mobile-contact"
+          >
             <a class="dropdown-tab" href="course_team.html">Course Team</a>
             <a class="dropdown-tab" href="feedback.html">Feedback</a>
           </div>
           <div class="dropdown">
-            <a class="tab-profile" onclick="showDropdown(document.getElementById('dropdown-content-mobile-profile'))">My Profile</a>
+            <a
+              class="tab-profile"
+              onclick="showDropdown(document.getElementById('dropdown-content-mobile-profile'))"
+              >My Profile</a
+            >
           </div>
-          <div class="dropdown-content-mobile" id="dropdown-content-mobile-profile">
+          <div
+            class="dropdown-content-mobile"
+            id="dropdown-content-mobile-profile"
+          >
             {% if isInstructor %}
-            <a class="dropdown-tab" href="instructor_grades.html">Manage Grades</a>
+            <a class="dropdown-tab" href="instructor_grades.html"
+              >Manage Grades</a
+            >
             {% else %}
             <a class="dropdown-tab" href="student_grades.html">My Grades</a>
             {% endif %}
@@ -83,12 +117,14 @@
           <a class="profile-tab" id="profile-tab">
             <div class="profile-icon-container" id="profile-icon-container">
               <!-- Add a profile photo -->
-              <img alt="profile-image" src="icon2.jpg">
+              <img alt="profile-image" src="icon2.jpg" />
             </div>
           </a>
           <div class="dropdown-content">
             {% if isInstructor %}
-            <a class="dropdown-tab" href="instructor_grades.html">Manage Grades</a>
+            <a class="dropdown-tab" href="instructor_grades.html"
+              >Manage Grades</a
+            >
             {% else %}
             <a class="dropdown-tab" href="student_grades.html">My Grades</a>
             {% endif %}
@@ -101,11 +137,55 @@
     </header>
     {% block content %} {% endblock %}
     <footer>
-      <p>CSCB20 - Introduction to Web Application and Database</p>
-      <a href="https://web.cs.toronto.edu/people/faculty-directory"
-        >Department of Computer Science at U of T</a
-      >
-      <p>Site designed by Bomin Kim, Taemin Lee, and Paul Nguyen</p>
+      <div class="footer-desc">
+        <h3 style="margin: 0.5rem">
+          CSCB20 - Introduction to Web Application and Database
+        </h3>
+        <a
+          style="margin: 0.5rem"
+          href="https://web.cs.toronto.edu/people/faculty-directory"
+          >Department of Computer Science at U of T</a
+        >
+        <p style="margin: 0.5rem">
+          Site designed by Bomin Kim, Taemin Lee, and Paul Nguyen
+        </p>
+      </div>
+      <div class="footer-nav">
+        <table>
+          <thead>
+            <tr>
+              <th>Home</th>
+              <th>Material</th>
+              <th>Resources</th>
+              <th>Calendar</th>
+              <th>Contact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Home</td>
+              <td>Assignments</td>
+              <td>Resources</td>
+              <td>Calendar</td>
+              <td>Course Team</td>
+            </tr>
+            <tr>
+              <td>Syllabus</td>
+              <td>Lectures</td>
+              <td></td>
+              <td></td>
+              <td>Feedback</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>Labs</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </footer>
   </body>
 </html>
