@@ -97,14 +97,17 @@ def edit_student_grades():
 def manage_remark_request():
     if request.method == 'POST':
         # update mark and comment to database
-        pass
+        added_comment = request.json
+        print(added_comment)
+        add_remark_comment(added_comment)
+        return redirect(url_for('instructor.manage_remark_request'))
     ret_ass_req = get_assignment_remark_req()
     ret_exam_req = get_exam_remark_req()
     exam_reqs = []
     ass_reqs = []
     for item in ret_ass_req:
-        ass_reqs.append((item.reqid, item.sid, item.aid, item.description))
+        ass_reqs.append((item.reqid, item.sid, item.aid, item.description, get_assignment_name_by_id(item.aid)))
     for item in ret_exam_req:
-        exam_reqs.append((item.reqid, item.sid, item.aid, item.description))
+        exam_reqs.append((item.reqid, item.sid, item.eid, item.description, get_exam_name_by_eid(item.eid)))
     return render_template('instructor_remarks.html', exam_reqs = exam_reqs, \
                            ass_reqs = ass_reqs)

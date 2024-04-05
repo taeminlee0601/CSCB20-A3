@@ -44,3 +44,18 @@ def get_exam_remark_req_by_cur_student():
             'comment': item.comment}
         ret.append(dict)
     return ret
+
+def add_remark_comment(remark_request_info):
+    '''
+    Add a comment to the grade request
+    '''
+    if remark_request_info['assessment-type'] == 'a':
+        remark_request = Assignment_Regrade_Request.query.filter(Assignment_Regrade_Request.reqid == remark_request_info['id']).first()
+        print('Here is Remark Request Info (Assignment): ', remark_request.reqid, remark_request.aid, remark_request.sid)
+        remark_request.comment = remark_request_info['desc']
+        db.session.commit()
+    elif remark_request_info['assessment-type'] == 'e':
+        remark_request = Exam_Regrade_Request.query.filter(Exam_Regrade_Request.reqid == remark_request_info['id']).first()
+        print('Here is Remark Request Info (Exam): ', remark_request.reqid, remark_request.eid, remark_request.sid)
+        remark_request.comment = remark_request_info['desc']
+        db.session.commit()
