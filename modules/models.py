@@ -98,3 +98,9 @@ def get_usertype_by_username(username):
     Return the user_type (either 'instructor' or 'student' by the username)
     '''
     return Login.query.filter(Login.username == username).first().user_type
+
+def get_name_by_username(username):
+    '''
+    Return the name based on username
+    '''
+    return Login.query.filter(Login.username == username).first().name
