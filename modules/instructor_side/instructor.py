@@ -34,7 +34,7 @@ def display_feedback():
         if item.improve_lab != '':
             rsp_q4.append(item.improve_lab)
     # print(rsp_q1, rsp_q2, rsp_q3, rsp_q4)
-    return render_template('feedback.html', rsp_q1 = rsp_q1, rsp_q2 = rsp_q2, \
+    return render_template('instructor_feedbacks.html', rsp_q1 = rsp_q1, rsp_q2 = rsp_q2, \
                            rsp_q3 = rsp_q3, rsp_q4 = rsp_q4)
 
 def update_student_info(assessment_id):

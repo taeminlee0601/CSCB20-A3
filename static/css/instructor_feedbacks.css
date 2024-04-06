@@ -1,0 +1,30 @@
+@import url(student_grades.css);
+
+.feedback-display {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 20px;
+}
+
+th {
+    margin-top: 10px;
+    padding-top: 10px;
+    height: 100%;
+    text-align: center;
+}
+
+.response-column {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+}
+
+.response-box {
+    padding: 1rem;
+    justify-content: center;
+    align-content: center;
+    background-color: white;
+    box-shadow: 0.5px 0.5px 3px;
+    min-height: 40px;
+}
