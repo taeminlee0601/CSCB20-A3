@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, session, request
 from datetime import timedelta
-from modules.models import db
+from modules.models import db, get_name_by_username
 from modules.auth import auth, bcrypt
 from modules.feedback import fb
 from modules.student_side.student import student
@@ -27,7 +27,8 @@ def home():
     if 'username' not in session.keys():
         return redirect(url_for('auth.signin'))
     pagename = 'Home'
-    return render_template('index.html', pagename=pagename, user_type = session['user-type'])
+    name = get_name_by_username(session['username']);
+    return render_template('index.html', pagename=pagename, user_type = session['user-type'], name=name)
 
 @app.route('/assignment.html')
 @app.route('/assignment')

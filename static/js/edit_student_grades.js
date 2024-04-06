@@ -7,6 +7,9 @@ $(document).ready(function() {
         $('.new-grade').on('focusout keypress', function(e) {
             if (e.type == 'focusout' || (e.type == 'keypress' && (e.keyCode == 13 || e.keyPress == 13))) {
                 var new_grade = $(this).val();
+                if (new_grade > 100) {
+                    new_grade = 100;
+                }
                 $.ajax({
                     url: 'http://127.0.0.1:5000/edit_grades',
                     type: 'POST',
@@ -15,6 +18,7 @@ $(document).ready(function() {
                     success: function(new_url) {
                         console.log('Sent sucessfully');
                         $('.new-grade').replaceWith('<span class="stu-grade">' + new_grade + '</span>');
+                        window.location.href='edit_grades';
                     },
                     error: function(error) {
                         console.log('Error:', error);
