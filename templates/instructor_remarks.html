@@ -1,0 +1,117 @@
+{% extends 'user_template.html' %} {% block more_css %}
+<link rel="stylesheet" href="../static/css/instructor_remarks.css" />
+{% endblock %} {% block more_script %}
+<script src="../static/js/instructor_remarks.js" defer></script>
+{% endblock %} {% block custom_menu %}
+<a href="manage_grades"><li>Manage Grades</li></a>
+<a href="instructor_remarks.html"><li>View Remark Requests</li></a>
+<a href="instructor_feedbacks.html"><li>View Feedbacks</li></a>
+{% endblock%} {% block content %}
+<main>
+  <h1>CSCB20</h1>
+  <div class="assessment-list-box">
+    <h2>Assignments</h2>
+    <table>
+      <thead>
+        <th>Assignment Name</th>
+        <th>UTorID</th>
+        <th>Remark Reqest ID</th>
+        <th>View Student Comment</th>
+        <th>Add Comment</th>
+      </thead>
+      <tbody>
+        {% for info in ass_reqs %}
+        <tr>
+          <td style="display: none" class="assignment-id">{{info[2]}}</td>
+          <td>{{info[4]}}</td>
+          <td>{{info[1]}}</td>
+          <td class="regrade-request-id">{{info[0]}}</td>
+          <td class="view-student-comment-ass">
+            <button class="ass-view-student-comment-btn">View Comment</button>
+          </td>
+          <td class="add-comment-ass">
+            <button class="add-comment-btn">Add Comment</button>
+          </td>
+          <div id="student-comment-ass" style="display: none">
+            <div class="content-header">
+              <h3>Student Comment for Regrade Request {{info[0]}}</h3>
+              <button class="close-button">
+                <img
+                  id="close-button-1"
+                  src="../static/src/images/close.png"
+                  alt="close-button"
+                  style="width: 50%; background-color: none"
+                />
+              </button>
+            </div>
+            <p id="student-comment-paragraph">{{info[3]}}</p>
+          </div>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="assessment-list-box">
+    <h2>Exams</h2>
+    <table>
+      <thead>
+        <th>Exam Name</th>
+        <th>UTorID</th>
+        <th>Remark Reqest ID</th>
+        <th>View Student Comment</th>
+        <th>Add Comment</th>
+      </thead>
+      <tbody>
+        {% for info in exam_reqs %}
+        <tr>
+          <td style="display: none" class="exam-id">{{info[2]}}</td>
+          <td>{{info[4]}}</td>
+          <td>{{info[1]}}</td>
+          <td class="regrade-request-id">{{info[0]}}</td>
+          <td class="view-student-comment-exam">
+            <button class="exam-view-student-comment-btn">View Comment</button>
+          </td>
+          <td class="add-comment-exam">
+            <button class="add-comment-btn">Add Comment</button>
+          </td>
+          <div id="student-comment-exam" style="display: none">
+            <div class="content-header">
+              <h3>Student Comment for Regrade Request {{info[0]}}</h3>
+              <button class="close-button">
+                <img
+                  id="close-button-3"
+                  src="../static/src/images/close.png"
+                  alt="close-button"
+                  style="width: 50%; background-color: none"
+                />
+              </button>
+            </div>
+            <p id="student-comment-paragraph">{{info[3]}}</p>
+          </div>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div id="add-comment-popup" style="display: none">
+    <div class="content-header">
+      <h3>Add Comment for Regrade Request</h3>
+      <button class="close-button">
+        <img
+          id="close-button-2"
+          src="../static/src/images/close.png"
+          alt="close-button"
+          style="width: 50%; background-color: none"
+        />
+      </button>
+    </div>
+    <p></p>
+    <form id="add-comment-form">
+      <textarea class="input" rows="30" name="input-comment"></textarea>
+      <button id="submit-comment-btn" type="submit" style="width: 5rem">
+        Submit
+      </button>
+    </form>
+  </div>
+</main>
+{% endblock %}

@@ -10,6 +10,7 @@ ins = Blueprint('instructor', __name__)
 stu_grade_info = []
 
 @ins.route('/view_my_feedback')
+@ins.route('/instructor_feedbacks.html')
 def display_feedback():
     '''
     Get the feedback to the database and display it on the website
@@ -33,7 +34,7 @@ def display_feedback():
         if item.improve_lab != '':
             rsp_q4.append(item.improve_lab)
     # print(rsp_q1, rsp_q2, rsp_q3, rsp_q4)
-    return render_template('feedback.html', rsp_q1 = rsp_q1, rsp_q2 = rsp_q2, \
+    return render_template('instructor_feedbacks.html', rsp_q1 = rsp_q1, rsp_q2 = rsp_q2, \
                            rsp_q3 = rsp_q3, rsp_q4 = rsp_q4)
 
 def update_student_info(assessment_id):
@@ -92,17 +93,21 @@ def edit_student_grades():
     assessment_name = assessment_name)
 
 @ins.route('/manage_remark_request', methods = ['GET', 'POST'])
+@ins.route('/instructor_remarks.html', methods = ['GET', 'POST'])
 def manage_remark_request():
     if request.method == 'POST':
         # update mark and comment to database
-        pass
+        added_comment = request.json
+        print(added_comment)
+        add_remark_comment(added_comment)
+        return redirect(url_for('instructor.manage_remark_request'))
     ret_ass_req = get_assignment_remark_req()
     ret_exam_req = get_exam_remark_req()
     exam_reqs = []
     ass_reqs = []
     for item in ret_ass_req:
-        ass_reqs.append((item.reqid, item.sid, item.aid, item.description))
+        ass_reqs.append((item.reqid, item.sid, item.aid, item.description, get_assignment_name_by_id(item.aid)))
     for item in ret_exam_req:
-        exam_reqs.append((item.reqid, item.sid, item.aid, item.description))
-    return render_template('instructor_remark_request.html', exam_reqs = exam_reqs, \
+        exam_reqs.append((item.reqid, item.sid, item.eid, item.description, get_exam_name_by_eid(item.eid)))
+    return render_template('instructor_remarks.html', exam_reqs = exam_reqs, \
                            ass_reqs = ass_reqs)
