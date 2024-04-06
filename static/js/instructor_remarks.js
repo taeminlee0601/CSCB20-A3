@@ -1,5 +1,8 @@
 $(document).ready(function() {
     $(".ass-view-student-comment-btn").click(function() {
+        var student_comment = this.getAttribute('comment');
+        var paragraph = document.getElementById('student-comment-paragraph-ass');
+        paragraph.textContent = student_comment;
         $('#student-comment-ass').show();
     });
     $('#close-button-1').click(function(){
@@ -15,6 +18,9 @@ $(document).ready(function() {
         $('#add-comment-popup').hide();
     });
     $('.exam-view-student-comment-btn').click(function() {
+        var student_comment = this.getAttribute('comment');
+        var paragraph = document.getElementById('student-comment-paragraph-exam');
+        paragraph.textContent = student_comment;
         $('#student-comment-exam').show();
     });
     $('#close-button-3').click(function(){

@@ -26,8 +26,8 @@
           <td>{{info[4]}}</td>
           <td>{{info[1]}}</td>
           <td class="regrade-request-id">{{info[0]}}</td>
-          <td class="view-student-comment-ass">
-            <button class="ass-view-student-comment-btn">View Comment</button>
+          <td class="view-student-comment">
+            <button class="ass-view-student-comment-btn" comment="{{info[3]}}">View Comment</button>
           </td>
           <td class="add-comment-ass">
             <button class="add-comment-btn">Add Comment</button>
@@ -44,7 +44,7 @@
                 />
               </button>
             </div>
-            <p id="student-comment-paragraph">{{info[3]}}</p>
+            <p class="student-comment-paragraph" id="student-comment-paragraph-ass"></p>
           </div>
         </tr>
         {% endfor %}
@@ -68,8 +68,8 @@
           <td>{{info[4]}}</td>
           <td>{{info[1]}}</td>
           <td class="regrade-request-id">{{info[0]}}</td>
-          <td class="view-student-comment-exam">
-            <button class="exam-view-student-comment-btn">View Comment</button>
+          <td class="view-student-comment">
+            <button class="exam-view-student-comment-btn" comment="{{info[3]}}">View Comment</button>
           </td>
           <td class="add-comment-exam">
             <button class="add-comment-btn">Add Comment</button>
@@ -86,7 +86,7 @@
                 />
               </button>
             </div>
-            <p id="student-comment-paragraph">{{info[3]}}</p>
+            <p class="student-comment-paragraph" id="student-comment-paragraph-exam"></p>
           </div>
         </tr>
         {% endfor %}

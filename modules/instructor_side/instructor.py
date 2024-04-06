@@ -106,6 +106,7 @@ def manage_remark_request():
     exam_reqs = []
     ass_reqs = []
     for item in ret_ass_req:
+        print(item.description)
         ass_reqs.append((item.reqid, item.sid, item.aid, item.description, get_assignment_name_by_id(item.aid)))
     for item in ret_exam_req:
         exam_reqs.append((item.reqid, item.sid, item.eid, item.description, get_exam_name_by_eid(item.eid)))
