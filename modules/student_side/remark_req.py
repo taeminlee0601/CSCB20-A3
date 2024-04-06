@@ -16,6 +16,9 @@ def get_assignment_remark_req_by_cur_student():
     cur_utorid = get_utorid_by_username(session['username'])
     ret = []
     for item in ass_req:
+        if item.sid != cur_utorid:
+            continue
+
         dict = {'name': Assignment.query.filter(Assignment.aid == item.aid).first().name,
             'mark': Assignment_Grade.query.filter(Assignment_Grade.aid == item.aid and\
                                                   Assignment_Grade.sid == cur_utorid).first().grade,
@@ -38,6 +41,9 @@ def get_exam_remark_req_by_cur_student():
     cur_utorid = get_utorid_by_username(session['username'])
     ret = []
     for item in exam_req:
+        if item.sid != cur_utorid:
+            continue
+
         dict = {'name': Exam.query.filter(Exam.eid == item.eid).first().name,
             'mark': Exam_Grade.query.filter(Exam_Grade.eid == item.eid and \
                                             Exam_Grade.sid == cur_utorid).first().grade,
