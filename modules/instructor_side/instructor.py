@@ -1,6 +1,5 @@
 from modules.models import *
 from flask import Blueprint, session, render_template, redirect, url_for, request
-from modules.feedback import get_feedback
 from modules.models import *
 from modules.student_side.assessment_info import *
 from modules.student_side.grades import *
@@ -33,7 +32,6 @@ def display_feedback():
             rsp_q3.append(item.like_about_lab)
         if item.improve_lab != '':
             rsp_q4.append(item.improve_lab)
-    # print(rsp_q1, rsp_q2, rsp_q3, rsp_q4)
     return render_template('instructor_feedbacks.html', rsp_q1 = rsp_q1, rsp_q2 = rsp_q2, \
                            rsp_q3 = rsp_q3, rsp_q4 = rsp_q4)
 
@@ -53,7 +51,6 @@ def update_student_info(assessment_id):
         res = get_all_exam_grades(assessment_id)
         for item in res:
             stu_grade_info.append((item.sid, item.eid, item.grade))
-    print(stu_grade_info)
 
 @ins.route('/manage_grades', methods = ['GET', 'POST'])
 @ins.route('/instructor_grades.html', methods = ['GET', 'POST'])
@@ -77,7 +74,7 @@ def edit_student_grades():
     if request.method == 'POST':
         # update mark into database
         new_grade_info = request.json
-        print(new_grade_info) # Added to check if data is passed correctly
+        # print(new_grade_info) # Added to check if data is passed correctly
         update_grades(new_grade_info)
         return redirect(url_for('instructor.edit_student_grades'))
 
@@ -98,7 +95,6 @@ def manage_remark_request():
     if request.method == 'POST':
         # update mark and comment to database
         added_comment = request.json
-        print(added_comment)
         add_remark_comment(added_comment)
         return redirect(url_for('instructor.manage_remark_request'))
     ret_ass_req = get_assignment_remark_req()
@@ -106,7 +102,6 @@ def manage_remark_request():
     exam_reqs = []
     ass_reqs = []
     for item in ret_ass_req:
-        print(item.description)
         ass_reqs.append((item.reqid, item.sid, item.aid, item.description, get_assignment_name_by_id(item.aid)))
     for item in ret_exam_req:
         exam_reqs.append((item.reqid, item.sid, item.eid, item.description, get_exam_name_by_eid(item.eid)))
