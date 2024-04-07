@@ -80,7 +80,9 @@
             >
             <div class="dropdown-content">
               <a href="course_team.html">Course Team</a>
+              {% if user_type != 'instructor' %}
               <a href="feedback.html">Feedback</a>
+              {% endif %}
             </div>
           </div>
           <div
@@ -88,7 +90,9 @@
             id="dropdown-content-mobile-contact"
           >
             <a class="dropdown-tab" href="course_team.html">Course Team</a>
+            {% if user_type != 'instructor' %}
             <a class="dropdown-tab" href="feedback.html">Feedback</a>
+            {% endif %}
           </div>
           <div class="dropdown">
             <a
@@ -181,7 +185,9 @@
               <td><a href="lectures.html">Lectures</a></td>
               <td></td>
               <td></td>
+              {% if user_type != 'instructor' %}
               <td><a href="feedback.html">Feedback</a></td>
+              {% endif %}
             </tr>
             <tr>
               <td></td>

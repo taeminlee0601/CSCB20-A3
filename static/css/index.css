@@ -135,6 +135,12 @@ button:hover {
     html {
         font-size: 80%;
     }
+    footer {
+      grid-template-columns: 100%;
+    }
+    .footer-nav {
+      display: none;
+    }
 }
 
 a {
