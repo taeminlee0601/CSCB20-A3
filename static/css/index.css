@@ -135,6 +135,12 @@ button:hover {
     html {
         font-size: 80%;
     }
+    footer {
+      grid-template-columns: 100%;
+    }
+    .footer-nav {
+      display: none;
+    }
 }
 
 a {
@@ -383,4 +389,8 @@ a:hover {
   .closeDropdown {
     display: none;
   }
+}
+
+.tab, .navbar-title, .profile-tab, .tab-profile, .navbar-filler {
+  background-color: #565EB6;
 }

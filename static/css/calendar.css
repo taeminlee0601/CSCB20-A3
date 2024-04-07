@@ -17,7 +17,7 @@ iframe {
     height: 75vw;
 }
 
-.tab, .navbar-title, .profile-tab {
+.tab, .navbar-title, .profile-tab, .tab-profile, .navbar-filler {
     background-color: #8C55B5;
 }
 

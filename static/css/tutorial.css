@@ -30,7 +30,7 @@ button {
     word-wrap: break-word;
 }
 
-.tab, .navbar-title, .profile-tab {
+.tab, .navbar-title, .profile-tab, .tab-profile, .navbar-filler {
     background-color: #6C55B5;
 }
 
