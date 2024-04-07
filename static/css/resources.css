@@ -24,7 +24,7 @@ img {
     height: auto;
 }
 
-.tab, .navbar-title, .profile-tab {
+.tab, .navbar-title, .profile-tab, .tab-profile, .navbar-filler {
     background-color: #559AB5;
 }
 

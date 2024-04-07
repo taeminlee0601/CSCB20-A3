@@ -390,3 +390,7 @@ a:hover {
     display: none;
   }
 }
+
+.tab, .navbar-title, .profile-tab, .tab-profile, .navbar-filler {
+  background-color: #565EB6;
+}
