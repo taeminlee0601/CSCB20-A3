@@ -1,4 +1,5 @@
-from flask import flash
+from flask import session, redirect, url_for
+from sqlalchemy import text
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
@@ -104,3 +105,28 @@ def get_name_by_username(username):
     Return the name based on username
     '''
     return Login.query.filter(Login.username == username).first().name
+
+def get_list_of_instructor():
+    '''
+    Get the list of all instructors available in the database
+    '''
+    return Login.query.filter(Login.user_type == 'instructor').all()
+
+def get_feedback():
+    '''
+    Returns all feedback for current instructor, if the user is not an instructor
+    then return to sign in page.
+    '''
+    if 'username' not in session.keys():
+        return redirect(url_for('auth.signin'))
+    
+    sql = 'select like_about_instructor, improve_instructor, like_about_lab, \
+        improve_lab from feedback where iid = "' + str(session['username']) + '"'
+    with db.engine.connect() as conn:
+        return conn.execute(text(sql)).all()
+
+def query_feedback():
+    '''
+    Return all feedback from the students in Feedback schema
+    '''
+    return Feedback.query.all()
