@@ -23,7 +23,6 @@ def feedback():
                             improve_instructor = request.form['qs-improve-instructor'],
                             like_about_lab = request.form['qs-like-about-lab'],
                             improve_lab = request.form['qs-improve-lab'])
-        print(request.form['instructor'])
         if fb_value.iid == -1:
             # TODO: add this msg to front-end
             flash('This instructor does not exist')
