@@ -5,9 +5,10 @@ from modules.student_side.grades import *
 
 student = Blueprint("student", __name__)
 
+@student.route('/info')
 @student.route('/info/<remark_request_sent>')
 @student.route('/student_grades.html')
-def info(remark_request_sent = False):
+def info(remark_request_sent = ''):
     if 'username' not in session.keys():
         return redirect(url_for('auth.signin'))
     if session['user-type'] != 'student':
@@ -17,6 +18,7 @@ def info(remark_request_sent = False):
     if remark_request_sent:
         print(remark_request_sent)
         flash('Request sent succesfully')
+        return redirect(url_for('student.info'))
     return render_template('student_grades.html', assignment_grades = assignment_grades\
                            , exam_grades = exam_grades)
 
@@ -39,10 +41,9 @@ def remark():
                                         eid = req.get('id'),
                                         description = req.get('desc'),
                                         comment = '')
-        remark_request_sent = True
     db.session.add(data)
     db.session.commit()
-    return redirect(url_for('student.info', remark_request_sent = remark_request_sent))
+    return redirect(url_for('student.info'))
 
 @student.route('/my_remark_request')
 @student.route('/student_remark.html')
