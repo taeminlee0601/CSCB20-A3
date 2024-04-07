@@ -35,6 +35,7 @@ document.getElementById('submit-regrade-request-btn').addEventListener('click', 
         if (response.ok) {
             // TODO: disable the button after send remark req 
             console.log('Data submitted successfully');
+            window.location.href='/info/remark_sent'
         } else {
             console.error('Failed to submit data');
         }

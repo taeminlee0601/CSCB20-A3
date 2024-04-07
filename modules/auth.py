@@ -24,6 +24,7 @@ def signin():
             return redirect(url_for('home'))
         else:
             flash('Invalid username/password!')
+            return redirect(url_for('auth.signin'))
     return render_template('signin.html', pagename=pagename)
 
 @auth.route('/signup', methods = ['GET', 'POST'])
