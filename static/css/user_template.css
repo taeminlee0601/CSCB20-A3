@@ -7,10 +7,14 @@ body {
     grid-template-columns: 240px auto;
 }
 
+.responsive-body {
+    grid-template-columns: 40px auto;
+}
+
 .sidebar {
     background-color: rgb(14, 48, 98);
     width: 240px;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -69,4 +73,32 @@ a:hover {
 
 #log-out-box {
     align-items: flex-start;
+}
+
+.menu-button {
+    display: none;
+}
+
+.sidebar-shrinked {
+    display: none;
+    background-color: rgb(14, 48, 98);
+    width: 30px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 0.8rem;
+    }
+
+    button {
+        font-size: 0.6rem;
+    }
+
+    .menu-button {
+        display: flex;
+    }
 }
