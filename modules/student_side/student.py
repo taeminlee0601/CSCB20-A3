@@ -16,7 +16,6 @@ def info(remark_request_sent = ''):
     assignment_grades = get_assignment_grades()
     exam_grades = get_exam_grades()
     if remark_request_sent:
-        print(remark_request_sent)
         flash('Request sent succesfully')
         return redirect(url_for('student.info'))
     return render_template('student_grades.html', assignment_grades = assignment_grades\
